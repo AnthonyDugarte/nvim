@@ -12,3 +12,9 @@ Open `nvim` and enter the following:
 :checkhealth
 ```
 
+## TODOs
+
+- [ ] Alpha not working
+- [ ] Toggleterm keybindings
+- [ ] Improve window + tabs navigation
+

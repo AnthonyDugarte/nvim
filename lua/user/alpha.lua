@@ -1,7 +1,7 @@
 local status_ok, alpha = pcall(require, "alpha")
--- if not status_ok then
---   return
--- end
+if not status_ok then
+  return
+end
 
 local icons = require "user.icons"
 
@@ -35,15 +35,20 @@ local function footer()
   -- local fortune = handle:read("*a")
   -- handle:close()
   -- return fortune
-  return "chrisatmachine.com"
+  return "anthonydugarte.com"
 end
 
 dashboard.section.footer.val = footer()
 
-dashboard.section.footer.opts.hl = "Type"
-dashboard.section.header.opts.hl = "Include"
-dashboard.section.buttons.opts.hl = "Keyword"
+-- dashboard.section.footer.opts.hl = "Type"
+-- dashboard.section.header.opts.hl = "Include"
+-- dashboard.section.buttons.opts.hl = "Keyword"
 
-dashboard.opts.opts.noautocmd = true
+-- dashboard.opts.opts.noautocmd = true
 -- vim.cmd([[autocmd User AlphaReady echo 'ready']])
 alpha.setup(dashboard.opts)
+
+-- Disable folding on alpha buffer
+-- vim.cmd([[
+--     autocmd FileType alpha setlocal nofoldenable
+-- ]])
