@@ -32,22 +32,25 @@ keymap("n", "<m-l>", "<C-w>l", opts)
 keymap("n", "<enter>", ":tabnew %<cr>", opts)
 keymap("n", "<s-enter>", ":tabclose<cr>", opts)
 keymap("n", "<m-\\>", ":tabonly<cr>", opts)
+-- Naviagate buffers
+keymap("n", "<s-l>", ":bnext<CR>", opts)
+keymap("n", "<s-h>", ":bprevious<CR>", opts)
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+-- keymap("n", "<C-Up>", ":resize -2<CR>", opts)
+-- keymap("n", "<C-Down>", ":resize +2<CR>", opts)
+-- keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+-- keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- I hate typing these
-keymap("n", "H", "^", opts)
-keymap("n", "L", "$", opts)
-keymap("v", "H", "^", opts)
-keymap("v", "L", "$", opts)
-keymap("x", "H", "^", opts)
-keymap("x", "L", "$", opts)
-keymap("o", "H", "^", opts)
-keymap("o", "L", "$", opts)
+-- keymap("n", "H", "^", opts)
+-- keymap("n", "L", "$", opts)
+-- keymap("v", "H", "^", opts)
+-- keymap("v", "L", "$", opts)
+-- keymap("x", "H", "^", opts)
+-- keymap("x", "L", "$", opts)
+-- keymap("o", "H", "^", opts)
+-- keymap("o", "L", "$", opts)
 
 
 

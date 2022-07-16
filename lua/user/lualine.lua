@@ -4,7 +4,7 @@ if not status_ok then
   return
 end
 
-local status_theme_ok, theme = pcall(require, "lualine.themes.onedarker_alt")
+local status_theme_ok, theme = pcall(require, "lualine.themes.onedark")
 if not status_theme_ok then
   return
 end
@@ -38,7 +38,7 @@ local mode_color = {
   n = "#519fdf",
   i = "#c18a56",
   v = "#b668cd",
-  [""] = "#b668cd",
+  -- [""] = "#b668cd",
   V = "#b668cd",
   -- c = '#B5CEA8',
   -- c = '#D7BA7D',

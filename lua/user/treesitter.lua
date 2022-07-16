@@ -6,21 +6,16 @@ end
 -- local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername
 -- ft_to_parser.motoko = "typescript"
 
-
-local desired_install = { "cpp", "css", "dockerfile", "graphql", "html", "javascript", "jsdoc", "json", "make", "markdown", "python", "typescript" }
-
-
-
 configs.setup {
-  ensure_installed = desired_install, -- one of "all" or a list of languages
+  ensure_installed = "all", -- one of "all" or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-  ignore_install = { "" }, -- List of parsers to ignore installing
+  ignore_install = { "php", "phpdoc" }, -- List of parsers to ignore installing
   highlight = {
     -- use_languagetree = true,
     enable = true, -- false will disable the whole extension
     -- disable = { "css", "html" }, -- list of language that will be disabled
     -- disable = { "css", "markdown" }, -- list of language that will be disabled
-    disable = { "markdown" }, -- list of language that will be disabled
+    disable = { "css" }, -- list of language that will be disabled
     -- additional_vim_regex_highlighting = true,
   },
   autopairs = {

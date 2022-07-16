@@ -47,10 +47,16 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim"
   use "nvim-lua/popup.nvim"
-  -- use "tiagovla/scope.nvim"
-  use "akinsho/bufferline.nvim"
+  use "tiagovla/scope.nvim"
+  use {
+    "akinsho/bufferline.nvim",
+    requires = 'kyazdani42/nvim-web-devicons'
+  }
   use "moll/vim-bbye"
-  use "nvim-lualine/lualine.nvim"
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
   use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
@@ -64,7 +70,7 @@ return packer.startup(function(use)
   use "nacro90/numb.nvim"
   use "NvChad/nvim-colorizer.lua"
   use "windwp/nvim-spectre"
-  use "kevinhwang91/nvim-bq"
+  use "kevinhwang91/nvim-bqf"
   use "ThePrimeagen/harpoon"
   use "MattesGroeger/vim-bookmarks"
   use { "michaelb/sniprun", run = "bash ./install.sh" }
@@ -90,7 +96,10 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
   use "tamago324/lir.nvim"
-  use "goolord/alpha-nvim"
+  use {
+    "goolord/alpha-nvim",
+    requires = { 'kyazdani42/nvim-web-devicons' }
+  }
   use "folke/which-key.nvim"
   use "folke/zen-mode.nvim"
   use "karb94/neoscroll.nvim"
