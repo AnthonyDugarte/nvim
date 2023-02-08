@@ -14,4 +14,7 @@
 ## TODOS
 
 - [ ] file tree
+    - [x] Install nvim-tree
+    - [x] Install nerd font
+    - [ ] Add keymaps
 - [ ] file + terminal switching

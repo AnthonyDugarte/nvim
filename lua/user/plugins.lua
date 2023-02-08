@@ -41,6 +41,14 @@ packer.init {
 
 return packer.startup(function(use)
 	use "wbthomason/packer.nvim" -- Have packer manage itself
+	
+	use {
+		'nvim-tree/nvim-tree.lua',
+		requires = {
+    			'nvim-tree/nvim-web-devicons',
+  		},
+  		tag = 'nightly' -- updated every week. (see issue #1193)
+	}
 
         if PACKER_BOOTSTRAP then
     		require("packer").sync()
