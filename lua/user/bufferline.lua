@@ -5,4 +5,16 @@ if not status_ok then
 end
 
 bufferline.setup {
+  options = {
+    offsets = {
+      {
+
+      filetype = "NvimTree",
+      text = "File Explorer",
+      highligh = "Directory",
+      sparator = true,
+      padding = 1,
+    }
+    }
+  }
 }

@@ -26,3 +26,5 @@
 - [ ] tabs
   - [x] install bufferline
   - [x] use default config
+  - [x] Offset with nvim-tree
+  - [ ] Configure navigation keymaps

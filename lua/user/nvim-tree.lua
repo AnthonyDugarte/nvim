@@ -80,6 +80,7 @@ nvim_tree.setup {
 	},
 	update_cwd = true,
 	view = {
+    hide_root_folder = true,
 		mappings = {
 			custom_only = false,
 			list = {				
