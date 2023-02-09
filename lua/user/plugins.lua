@@ -80,6 +80,16 @@ return packer.startup(function(use)
   use "nvim-treesitter/nvim-treesitter"
   use "windwp/nvim-ts-autotag"
 
+  -- LSP
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+    "jose-elias-alvarez/null-ls.nvim",
+    "jay-babu/mason-null-ls.nvim",
+  }
+  
+
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end

@@ -36,3 +36,8 @@
 - [ ] Treesitter
   - [x] Install + setup default config
   - [x] Autotag plugin
+- [ ] LSP
+  - [x] mason automatic lspconfig install
+  - [x] add ts + lua servers
+  - [ ] Add cmp
+  - [ ] Add null-ls
