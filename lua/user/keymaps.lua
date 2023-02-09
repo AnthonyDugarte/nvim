@@ -14,17 +14,19 @@ keymap("n", "<C-i>", "<C-i>", opts)
 -- TreeToggle
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
--- Tabs
+-- Tabs (works weird when closing buffers)
 keymap("n", "<enter>", ":tabnew %<cr>", opts)
 keymap("n", "<s-enter>", ":tabclose<cr>", opts)
 keymap("n", "<m-\\>", ":tabonly<cr>", opts)
+-- Buffers
+keymap("n", "<leader>bd", ":bd<CR>", opts)
 
 -- Navigate tabs
-keymap("n", "<s-j>", ":tabprevious<CR>", opts)
-keymap("n", "<s-k>", ":tabnext<CR>", opts)
+keymap("n", "<s-j>", ":tabp<CR>", opts)
+keymap("n", "<s-k>", ":tabn<CR>", opts)
 -- Naviagate buffers
-keymap("n", "<s-h>", ":bprevious<CR>", opts)
-keymap("n", "<s-l>", ":bnext<CR>", opts)
+keymap("n", "<s-h>", ":bp<CR>", opts)
+keymap("n", "<s-l>", ":bn<CR>", opts)
 
 -- Windows movement
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -36,3 +38,8 @@ keymap("t", "<C-h>", "<cmd>wincmd h<CR>", term_opts)
 keymap("t", "<C-j>", "<cmd>wincmd j<CR>", term_opts)
 keymap("t", "<C-k>", "<cmd>wincmd k<CR>", term_opts)
 keymap("t", "<C-l>", "<cmd>wincmd l<CR>", term_opts)
+
+-- Visual
+-- Keep visual mode on identation
+keymap("v", "<", "<gv", opts)
+keymap("v", ">", ">gv", opts)
