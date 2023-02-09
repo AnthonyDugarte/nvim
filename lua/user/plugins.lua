@@ -46,13 +46,20 @@ return packer.startup(function(use)
 	use {
 		'nvim-tree/nvim-tree.lua',
 		requires = {
-    			'nvim-tree/nvim-web-devicons',
-  		},
-  		tag = 'nightly' -- updated every week. (see issue #1193)
+      'nvim-tree/nvim-web-devicons',
+  	},
+  	tag = 'nightly' -- updated every week. (see issue #1193)
 	}
 
-        if PACKER_BOOTSTRAP then
-    		require("packer").sync()
-  	end
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons' }
+  }
+
+  use 'folke/tokyonight.nvim'
+
+  if PACKER_BOOTSTRAP then
+    require("packer").sync()
+  end
 end)
 
