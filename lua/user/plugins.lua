@@ -71,6 +71,11 @@ return packer.startup(function(use)
     run = 'make'
   }
 
+  use { 
+    "akinsho/toggleterm.nvim",
+    tag = "2.3.0"
+  }
+
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end

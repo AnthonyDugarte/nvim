@@ -17,8 +17,8 @@
   - [x] Install nvim-tree
   - [x] Install nerd font
   - [x] Add keymaps
-- [ ] file + terminal switching
-- [ ] add status line
+- [x] file + terminal switching
+- [x] add status line
   - [x] install lualine
   - [x] use default config
 - [x] add colorscheme
