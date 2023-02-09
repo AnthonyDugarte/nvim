@@ -13,21 +13,25 @@
 
 ## TODOS
 
-- [x] file tree
+- [x] File tree
   - [x] Install nvim-tree
   - [x] Install nerd font
   - [x] Add keymaps
-- [x] file + terminal switching
-- [x] add status line
-  - [x] install lualine
-  - [x] use default config
-- [x] add colorscheme
-  - [x] tokyonight
-- [x] tabs
-  - [x] install bufferline
-  - [x] use default config
+- [x] File + terminal switching
+  - [x] Basic toggleterm config
+  - [x] keymaps
+- [x] Add status line
+  - [x] Install lualine
+  - [x] Use default config
+- [x] Add colorscheme
+  - [x] Tokyonight
+- [x] Tabs
+  - [x] Install bufferline
+  - [x] Use default config
   - [x] Offset with nvim-tree
   - [x] Configure navigation keymaps
-- [x] telescope
-  - [x] install
-  - [x] basic configuration
+- [x] Telescope
+  - [x] Install
+  - [x] Basic configuration
+- [ ] Treesitter
+  - [x] Install + setup default config

@@ -76,6 +76,10 @@ return packer.startup(function(use)
     tag = "2.3.0"
   }
 
+  -- Treesitter
+  use "nvim-treesitter/nvim-treesitter"
+
+
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
