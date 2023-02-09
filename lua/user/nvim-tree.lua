@@ -55,6 +55,24 @@ local function vsplit_preview()
     view.focus()
 end
 
+-- Add staged files from file tree by typing "ga"
+-- Taken from: https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes#git-stage-unstage-files-and-directories-from-the-tree
+local git_add = function()
+  local node = lib.get_node_at_cursor()
+  local gs = node.git_status.file
+
+  -- If the file is untracked, unstaged or partially staged, we stage it
+  if gs == "??" or gs == "MM" or gs == "AM" or gs == " M" then
+    vim.cmd("silent !git add " .. node.absolute_path)
+
+  -- If the file is staged, we unstage
+  elseif gs == "M " or gs == "A " then
+    vim.cmd("silent !git restore --staged " .. node.absolute_path)
+  end
+
+  lib.refresh_tree()
+end
+
 nvim_tree.setup {
 	filters = {
 		custom = { ".git" },
@@ -68,7 +86,8 @@ nvim_tree.setup {
 				{ key = "l", action = "edit", action_cb = edit_or_open },
 				{ key = "L", action = "vsplit_preview", action_cb = vsplit_preview },
                 		{ key = "h", action = "close_node" },
-                		{ key = "H", action = "collapse_all", action_cb = collapse_all }
+                		{ key = "H", action = "collapse_all", action_cb = collapse_all },
+				{ key = "ga", action = "git_add", action_cb = git_add },
 			}
 		}
 	},
