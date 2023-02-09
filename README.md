@@ -16,5 +16,6 @@
 - [ ] file tree
     - [x] Install nvim-tree
     - [x] Install nerd font
-    - [ ] Add keymaps
+    - [x] Add keymaps
 - [ ] file + terminal switching
+- [ ] add status line
