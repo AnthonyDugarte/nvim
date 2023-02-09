@@ -43,3 +43,9 @@ keymap("t", "<C-l>", "<cmd>wincmd l<CR>", term_opts)
 -- Keep visual mode on identation
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+
+-- Telescope
+keymap('n', '<leader>ff', ":Telescope find_files<CR>", opts)
+keymap('n', '<leader>fg', ":Telescope live_grep<CR>", opts)
+keymap('n', '<leader>fb', ":Telescope buffers<CR>", opts)
+keymap('n', '<leader>fh', ":Telescope help_tags<CR>", opts)

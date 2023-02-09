@@ -13,7 +13,7 @@
 
 ## TODOS
 
-- [ ] file tree
+- [x] file tree
   - [x] Install nvim-tree
   - [x] Install nerd font
   - [x] Add keymaps
@@ -23,8 +23,11 @@
   - [x] use default config
 - [x] add colorscheme
   - [x] tokyonight
-- [ ] tabs
+- [x] tabs
   - [x] install bufferline
   - [x] use default config
   - [x] Offset with nvim-tree
   - [x] Configure navigation keymaps
+- [x] telescope
+  - [x] install
+  - [x] basic configuration
