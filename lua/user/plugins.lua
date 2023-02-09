@@ -58,6 +58,9 @@ return packer.startup(function(use)
 
   use 'folke/tokyonight.nvim'
 
+  use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+  use "tiagovla/scope.nvim"
+
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end

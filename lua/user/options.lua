@@ -10,7 +10,9 @@ local options = {
 	showmode = false,
 	termguicolors = true,
 	splitbelow = true,
-	splitright = true
+	splitright = true,
+  mouse = "a",
+  showtabline = 0,
 }
 
 vim.g.loaded_netrw = 1

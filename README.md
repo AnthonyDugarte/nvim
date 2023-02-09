@@ -23,3 +23,6 @@
   - [x] use default config
 - [x] add colorscheme
   - [x] tokyonight
+- [ ] tabs
+  - [x] install bufferline
+  - [x] use default config

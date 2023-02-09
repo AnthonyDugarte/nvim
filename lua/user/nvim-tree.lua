@@ -3,7 +3,13 @@ if not status_ok then
   return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config") if not config_status_ok then return end local lib = require("nvim-tree.lib") local view = require("nvim-tree.view")
+local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
+if not config_status_ok then 
+  return
+end
+
+local lib = require("nvim-tree.lib")
+local view = require("nvim-tree.view")
 
 -- Specific to handle l, L, h, H keymas
 -- Taken from: https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes#h-j-k-l-style-navigation-and-editing
