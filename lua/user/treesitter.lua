@@ -15,4 +15,7 @@ treesitter.setup {
   indent = {
     enabled = true
   },
+  autotag = {
+    enabled = true
+  }
 }

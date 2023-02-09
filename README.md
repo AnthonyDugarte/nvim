@@ -35,3 +35,4 @@
   - [x] Basic configuration
 - [ ] Treesitter
   - [x] Install + setup default config
+  - [x] Autotag plugin

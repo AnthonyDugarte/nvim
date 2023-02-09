@@ -78,7 +78,7 @@ return packer.startup(function(use)
 
   -- Treesitter
   use "nvim-treesitter/nvim-treesitter"
-
+  use "windwp/nvim-ts-autotag"
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
