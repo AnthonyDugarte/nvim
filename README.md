@@ -40,4 +40,4 @@
   - [x] mason automatic lspconfig install
   - [x] add ts + lua servers
   - [ ] Add cmp
-  - [ ] Add null-ls
+  - [x] Add null-ls
