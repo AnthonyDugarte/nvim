@@ -1,4 +1,5 @@
 local options = {
+  clipboard = "unnamedplus",
 	expandtab = true,
 	tabstop = 2,
   shiftwidth = 2,
