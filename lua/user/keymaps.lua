@@ -12,7 +12,7 @@ keymap("n", "<C-Space>", "<cmd>WhichKey \\<leader><cr>", opts)
 keymap("n", "<C-i>", "<C-i>", opts)
 
 -- TreeToggle
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>e", ":NvimTreeFindFileToggle<cr>", opts)
 
 -- Tabs (works weird when closing buffers)
 keymap("n", "<enter>", ":tabnew %<cr>", opts)
@@ -49,4 +49,9 @@ keymap('n', '<leader>ff', ":Telescope find_files<CR>", opts)
 keymap('n', '<leader>fg', ":Telescope live_grep<CR>", opts)
 keymap('n', '<leader>fb', ":Telescope buffers<CR>", opts)
 keymap('n', '<leader>fh', ":Telescope help_tags<CR>", opts)
+-- Telescope LSP handling
+keymap('n', '<leader>fr', ":Telescope lsp_references<CR>", opts)
 
+
+-- Terminal interations
+keymap('n', '<C-|>', ":ToggleTermToggleAll<CR>", opts)
