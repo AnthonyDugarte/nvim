@@ -1,9 +1,9 @@
-local colorscheme = "tokyonight"
+local colorscheme = "catppuccin-latte"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 
 if not status_ok then
-  vim.notiy("colorscheme " .. colorscheme .. " not found!")
+  vim.notify("colorscheme " .. colorscheme .. " not found!")
   return
 end
 
