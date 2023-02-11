@@ -17,6 +17,16 @@
 - NerdFont (icons)
 - catimg (telescope img preview)
 
+## Configs
+
+### clangd : c/cpp lsp suggestions
+
+In order for clangd to generate appropiate suggestions, it's necessary to generate a `compile_commands.json`. On way to do it is via [bear](https://github.com/rizsotto/Bear):
+
+```sh
+bear -- make
+```
+
 ## TODOS
 
 - [x] File tree

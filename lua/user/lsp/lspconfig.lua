@@ -48,7 +48,7 @@ local on_attach = function(client, bufnr)
   end, bufopts)
 end
 
-local servers = { "tsserver", "pyright", "sumneko_lua" }
+local servers = { "tsserver", "pyright", "sumneko_lua", "clangd" }
 
 for _, server in pairs(servers) do
   lspconfig[server].setup({
