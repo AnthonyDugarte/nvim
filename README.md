@@ -33,7 +33,7 @@
 - [x] Telescope
   - [x] Install
   - [x] Basic configuration
-- [ ] Treesitter
+- [x] Treesitter
   - [x] Install + setup default config
   - [x] Autotag plugin
 - [x] LSP

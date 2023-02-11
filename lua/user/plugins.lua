@@ -57,6 +57,7 @@ return packer.startup(function(use)
 	-- Colorschemes
 	use("folke/tokyonight.nvim")
 	use({ "catppuccin/nvim", as = "catppuccin" })
+	use("f-person/auto-dark-mode.nvim")
 
 	-- Buffer tabs
 	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
