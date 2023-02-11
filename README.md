@@ -11,6 +11,12 @@
 
 - Restart nvim
 
+## Requirements
+
+- NVim
+- NerdFont (icons)
+- catimg (telescope img preview)
+
 ## TODOS
 
 - [x] File tree
