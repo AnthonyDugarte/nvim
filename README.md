@@ -57,3 +57,5 @@ bear -- make
   - [x] add ts + lua servers
   - [x] Add cmp
   - [x] Add null-ls
+- [x] DAP
+  - [x] cpp
