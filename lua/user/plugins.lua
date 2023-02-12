@@ -107,6 +107,8 @@ return packer.startup(function(use)
 	use("mfussenegger/nvim-dap")
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
+	use("numToStr/Comment.nvim")
+
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
