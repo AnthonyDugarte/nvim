@@ -83,6 +83,7 @@ return packer.startup(function(use)
 	-- Treesitter
 	use("nvim-treesitter/nvim-treesitter")
 	use("windwp/nvim-ts-autotag")
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- LSP
 	use("williamboman/mason.nvim")
