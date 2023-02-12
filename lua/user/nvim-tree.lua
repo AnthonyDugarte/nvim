@@ -71,7 +71,11 @@ end
 nvim_tree.setup({
 	filters = {
 		custom = { ".git" },
-		exclude = { ".gitignore" },
+		-- exclude = { ".gitignore" },
+	},
+	git = {
+		enabled = true,
+		ignore = false,
 	},
 	update_cwd = true,
 	view = {
