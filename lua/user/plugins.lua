@@ -110,6 +110,9 @@ return packer.startup(function(use)
 
 	use("numToStr/Comment.nvim")
 
+	-- Whichkey
+	use("folke/which-key.nvim")
+
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end

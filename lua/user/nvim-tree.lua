@@ -74,7 +74,7 @@ nvim_tree.setup({
 		-- exclude = { ".gitignore" },
 	},
 	git = {
-		enabled = true,
+		enable = true,
 		ignore = false,
 	},
 	update_cwd = true,
@@ -98,6 +98,6 @@ nvim_tree.setup({
 		},
 	},
 	diagnostics = {
-		enabled = true,
+		enable = true,
 	},
 })
