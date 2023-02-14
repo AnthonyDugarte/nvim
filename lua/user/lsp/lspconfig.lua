@@ -44,7 +44,13 @@ local on_attach = function(client, bufnr)
 	-- Prefer telescope references handler: <leader>fr
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 	vim.keymap.set("n", "<space>f", function()
-		vim.lsp.buf.format({ async = true })
+		vim.lsp.buf.format({
+			async = true,
+      -- Only filter with null-ls
+			filter = function(client)
+				return client.name == "null-ls"
+			end,
+		})
 	end, bufopts)
 end
 
