@@ -46,7 +46,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<space>f", function()
 		vim.lsp.buf.format({
 			async = true,
-      -- Only filter with null-ls
+			-- Only filter with null-ls
 			filter = function(client)
 				return client.name == "null-ls"
 			end,
@@ -57,8 +57,18 @@ end
 local servers = { "tsserver", "pyright", "lua_ls", "clangd" }
 
 for _, server in pairs(servers) do
-	lspconfig[server].setup({
+	local server_config_status_ok, server_config = pcall(require, "user.lsp.servers." .. server)
+
+	local config = {
 		on_attach = on_attach,
 		capabilities = capabilities,
-	})
+	}
+
+	if server_config_status_ok then
+		for k, v in pairs(server_config) do
+			config[k] = v
+		end
+	end
+
+	lspconfig[server].setup(config)
 end
