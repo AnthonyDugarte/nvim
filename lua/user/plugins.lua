@@ -117,6 +117,9 @@ return packer.startup(function(use)
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 
+	-- Indent lines
+	use("lukas-reineke/indent-blankline.nvim")
+
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
