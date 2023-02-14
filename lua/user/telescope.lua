@@ -5,5 +5,6 @@ if not status_ok then
 end
 
 telescope.load_extension("fzf")
+telescope.load_extension("ui-select")
 
 telescope.setup({})

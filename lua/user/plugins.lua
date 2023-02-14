@@ -73,6 +73,7 @@ return packer.startup(function(use)
 		"nvim-telescope/telescope-fzf-native.nvim",
 		run = "make",
 	})
+	use({ "nvim-telescope/telescope-ui-select.nvim" })
 
 	-- Terminal switching
 	use({
@@ -113,8 +114,8 @@ return packer.startup(function(use)
 	-- Whichkey
 	use("folke/which-key.nvim")
 
-  -- Git
-  use("lewis6991/gitsigns.nvim")
+	-- Git
+	use("lewis6991/gitsigns.nvim")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
