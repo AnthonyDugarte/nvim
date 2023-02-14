@@ -119,6 +119,7 @@ return packer.startup(function(use)
 
 	-- Indent lines
 	use("lukas-reineke/indent-blankline.nvim")
+	use("gpanders/editorconfig.nvim")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
