@@ -135,6 +135,9 @@ return packer.startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim")
 	use("gpanders/editorconfig.nvim")
 
+	-- Dashboard
+	use({ "goolord/alpha-nvim", requires = { "nvim-tree/nvim-web-devicons" } })
+
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
