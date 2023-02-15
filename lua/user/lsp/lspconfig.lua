@@ -21,11 +21,6 @@ end
 
 -- Attach keymaps, taken from: https://github.com/neovim/nvim-lspconfig#suggested-configuration
 local on_attach = function(client, bufnr)
-	-- Enable completion triggered by <c-x><c-o>
-	-- vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
-	-- Mappings.
-	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
@@ -41,16 +36,9 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
 	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 
-	-- Prefer telescope references handler: <leader>fr
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 	vim.keymap.set("n", "<space>f", function()
-		vim.lsp.buf.format({
-			async = true,
-			-- Only filter with null-ls
-			filter = function(client)
-				return client.name == "null-ls"
-			end,
-		})
+		vim.lsp.buf.format({ async = true })
 	end, bufopts)
 end
 
