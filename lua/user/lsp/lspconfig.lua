@@ -19,30 +19,33 @@ if not status_ok then
 	return
 end
 
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 local on_attach = function(client, bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
-	keymap("n", "gD", vim.lsp.buf.declaration, bufopts)
-	keymap("n", "gd", vim.lsp.buf.definition, bufopts)
-	keymap("n", "K", vim.lsp.buf.hover, bufopts)
-	keymap("n", "gi", vim.lsp.buf.implementation, bufopts)
-	keymap("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-	keymap("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
-	keymap("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
-	keymap("n", "<space>wl", function()
-		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-	end, bufopts)
-	keymap("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
-	keymap("n", "<space>rn", vim.lsp.buf.rename, bufopts)
-	keymap("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
+	keymap("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", bufopts)
+	keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", bufopts)
+	keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", bufopts)
+	keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", bufopts)
+	keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", bufopts)
+	keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", bufopts)
+	-- keymap("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
+	-- keymap("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
+	-- keymap("n", "<leader>wl", function()
+	-- 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+	-- end, bufopts)
+	keymap("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", bufopts)
+	keymap("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", bufopts)
+	keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", bufopts)
+	keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", bufopts)
+	keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", bufopts)
+	keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", bufopts)
+	keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", bufopts)
 
-	keymap("n", "gr", vim.lsp.buf.references, bufopts)
-
-	keymap("n", "<space>f", function()
-		vim.lsp.buf.format({ async = true })
-	end, bufopts)
+	-- keymap("n", "<leader>f", function()
+	-- 	vim.lsp.buf.format({ async = true })
+	-- end, bufopts)
 end
 
 local servers = { "tsserver", "pyright", "lua_ls", "clangd" }
