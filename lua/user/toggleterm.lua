@@ -9,6 +9,18 @@ toggleterm.setup({
 	open_mapping = [[<c-\>]],
 	insert_mappings = true,
 	terminal_mappings = false,
+	direction = "float",
+	shade_terminals = true,
+	shading_factor = 2,
+
+	float_opts = {
+		border = "curved",
+		winblend = 0,
+		highlights = {
+			border = "Normal",
+			background = "Normal",
+		},
+	},
 })
 
 local Terminal = require("toggleterm.terminal").Terminal
@@ -31,4 +43,3 @@ function _lazygit_toggle()
 end
 
 vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
-
