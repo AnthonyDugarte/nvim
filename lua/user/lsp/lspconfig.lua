@@ -43,9 +43,9 @@ local on_attach = function(client, bufnr)
 	keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", bufopts)
 	keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", bufopts)
 
-	-- keymap("n", "<leader>f", function()
-	-- 	vim.lsp.buf.format({ async = true })
-	-- end, bufopts)
+	keymap("n", "<leader>f", function()
+		vim.lsp.buf.format({ async = true })
+	end, bufopts)
 end
 
 local servers = { "tsserver", "pyright", "lua_ls", "clangd" }
