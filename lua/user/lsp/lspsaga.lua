@@ -3,4 +3,9 @@ if not status_ok then
 	return
 end
 
-lspsaga.setup({})
+lspsaga.setup({
+	-- Hide winbar
+	symbol_in_winbar = {
+		enable = false,
+	},
+})

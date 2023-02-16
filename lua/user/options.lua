@@ -13,7 +13,6 @@ local options = {
 	splitbelow = true,
 	splitright = true,
 	mouse = "a",
-	showtabline = 0,
 	completeopt = { "menuone", "noselect" },
 	ignorecase = true,
 	smartcase = true,
