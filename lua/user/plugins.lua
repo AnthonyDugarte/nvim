@@ -141,6 +141,9 @@ return packer.startup(function(use)
 	-- Dashboard
 	use({ "goolord/alpha-nvim", requires = { "nvim-tree/nvim-web-devicons" } })
 
+	-- Cute messages UI :D
+	use({ "folke/noice.nvim", requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" } })
+
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
