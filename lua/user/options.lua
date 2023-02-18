@@ -16,6 +16,7 @@ local options = {
 	completeopt = { "menuone", "noselect" },
 	ignorecase = true,
 	smartcase = true,
+	laststatus = 3,
 }
 
 vim.g.loaded_netrw = 1
