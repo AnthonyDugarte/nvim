@@ -39,6 +39,7 @@ null_ls.setup({
 		diagnostics.eslint,
 		formatting.stylua,
 		diagnostics.flake8,
+		formatting.black,
 		-- diagnostics.clang_check,
 		-- formatting.clang_format,
 	},
