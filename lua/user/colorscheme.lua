@@ -1,4 +1,4 @@
-local colorscheme = "catppuccin-latte"
+local colorscheme = "catppuccin-frappe"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 
@@ -7,21 +7,21 @@ if not status_ok then
 	return
 end
 
-local auto_dark_ok, auto_dark = pcall(require, "auto-dark-mode")
-
-if not auto_dark_ok then
-	return
-end
-
-auto_dark.setup({
-	update_interval = 5000,
-	set_dark_mode = function()
-		vim.api.nvim_set_option("background", "dark")
-		vim.cmd("colorscheme catppuccin-frappe")
-	end,
-	set_light_mode = function()
-		vim.api.nvim_set_option("background", "light")
-		vim.cmd("colorscheme catppuccin-latte")
-	end,
-})
-auto_dark.init()
+-- local auto_dark_ok, auto_dark = pcall(require, "auto-dark-mode")
+--
+-- if not auto_dark_ok then
+-- 	return
+-- end
+--
+-- auto_dark.setup({
+-- 	update_interval = 5000,
+-- 	set_dark_mode = function()
+-- 		vim.api.nvim_set_option("background", "dark")
+-- 		vim.cmd("colorscheme catppuccin-frappe")
+-- 	end,
+-- 	set_light_mode = function()
+-- 		vim.api.nvim_set_option("background", "light")
+-- 		vim.cmd("colorscheme catppuccin-latte")
+-- 	end,
+-- })
+-- auto_dark.init()
