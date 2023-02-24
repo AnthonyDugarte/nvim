@@ -23,6 +23,10 @@ keymap("n", "<leader>e", ":NvimTreeFindFileToggle<cr>", opts)
 
 -- Buffers
 keymap("n", "<leader>bd", ":bd<CR>", opts)
+-- keymap("n", "<s-h>", ":bp<CR>", opts)
+-- keymap("n", "<s-l>", ":bn<CR>", opts)
+
+-- Bufferline approach
 keymap("n", "<s-h>", ":BufferLineCyclePrev<CR>", opts)
 keymap("n", "<s-l>", ":BufferLineCycleNext<CR>", opts)
 keymap("n", "[b", ":BufferLineMovePrev<CR>", opts)

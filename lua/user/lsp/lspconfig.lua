@@ -29,7 +29,7 @@ local on_attach = function(client, bufnr)
 	keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", bufopts)
 	keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", bufopts)
 	keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", bufopts)
-	keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", bufopts)
+	-- keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", bufopts)
 	-- keymap("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
 	-- keymap("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
 	-- keymap("n", "<leader>wl", function()
@@ -43,9 +43,7 @@ local on_attach = function(client, bufnr)
 	keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", bufopts)
 	keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", bufopts)
 
-	keymap("n", "<leader>f", function()
-		vim.lsp.buf.format({ async = true })
-	end, bufopts)
+	keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", bufopts)
 end
 
 local servers = { "tsserver", "pyright", "lua_ls", "clangd" }
