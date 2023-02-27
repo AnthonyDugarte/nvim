@@ -176,6 +176,12 @@ return packer.startup(function(use)
 	use("f-person/auto-dark-mode.nvim")
 
 	-- --------------------------------------------------------------------------------------
+	-- Misc
+	-- --------------------------------------------------------------------------------------
+	use("tweekmonster/startuptime.vim")
+	use("nathom/filetype.nvim")
+
+	-- --------------------------------------------------------------------------------------
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
