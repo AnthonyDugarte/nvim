@@ -41,6 +41,13 @@ packer.init({
 return packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 
+	-- --------------------------------------------------------------------------------------
+	-- Visual Things
+	-- --------------------------------------------------------------------------------------
+
+	-- Dashboard
+	use({ "goolord/alpha-nvim", requires = { "nvim-tree/nvim-web-devicons" } })
+
 	-- File Explorer
 	use({
 		"nvim-tree/nvim-tree.lua",
@@ -54,16 +61,11 @@ return packer.startup(function(use)
 		requires = { "nvim-tree/nvim-web-devicons" },
 	})
 
-	-- Colorschemes
-	use("folke/tokyonight.nvim")
-	use({ "catppuccin/nvim", as = "catppuccin" })
-	use("f-person/auto-dark-mode.nvim")
-
 	-- Buffer tabs
 	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
 	use("tiagovla/scope.nvim")
 
-	-- Fuzzy Search
+	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.1",
@@ -81,21 +83,26 @@ return packer.startup(function(use)
 		tag = "2.3.0",
 	})
 
-	-- Treesitter
-	use("nvim-treesitter/nvim-treesitter")
-	use("JoosepAlviste/nvim-ts-context-commentstring")
+	-- Whichkey
+	use("folke/which-key.nvim")
 
-	-- Auto closing
-	use("windwp/nvim-autopairs")
-	use("windwp/nvim-ts-autotag")
+	-- cmdline / message / popupmenu UI
+	use({ "folke/noice.nvim", requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" } })
 
+	-- --------------------------------------------------------------------------------------
 	-- LSP
+	-- --------------------------------------------------------------------------------------
+
+	-- Core
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("neovim/nvim-lspconfig")
+
+	-- null-ls
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("jay-babu/mason-null-ls.nvim")
-	-- lsp ui
+
+	-- UI
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
@@ -105,45 +112,70 @@ return packer.startup(function(use)
 		},
 	})
 
-	-- cmp
+	-- --------------------------------------------------------------------------------------
+	-- CMP
+	-- --------------------------------------------------------------------------------------
+
+	-- core
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-cmdline")
 	use("hrsh7th/nvim-cmp")
-	use("saadparwaiz1/cmp_luasnip")
-	-- cmp UI
+
+	-- nice icons
 	use("onsails/lspkind.nvim")
 
 	-- Snippets
+	use("saadparwaiz1/cmp_luasnip")
 	use("L3MON4D3/LuaSnip")
 	use("rafamadriz/friendly-snippets")
+
+	-- --------------------------------------------------------------------------------------
+	-- Editor
+	-- --------------------------------------------------------------------------------------
+
+	-- Indent lines
+	use("lukas-reineke/indent-blankline.nvim")
+
+	-- Surround ys/ds/cs
+	use({ "kylechui/nvim-surround", tag = "*" })
+
+	-- Holy gcc gbc
+	use("numToStr/Comment.nvim")
+
+	-- project specific config
+	use("gpanders/editorconfig.nvim")
+
+	-- Treesitter
+	use("nvim-treesitter/nvim-treesitter")
+	use("JoosepAlviste/nvim-ts-context-commentstring")
+
+	-- Auto closing
+	use("windwp/nvim-autopairs")
+	use("windwp/nvim-ts-autotag")
+
+	-- --------------------------------------------------------------------------------------
+	-- Tools
+	-- --------------------------------------------------------------------------------------
 
 	-- Dap
 	use("mfussenegger/nvim-dap")
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
-	use("numToStr/Comment.nvim")
-
-	-- Whichkey
-	use("folke/which-key.nvim")
-
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 
-	-- Indent lines
-	use("lukas-reineke/indent-blankline.nvim")
-	use("gpanders/editorconfig.nvim")
+	-- --------------------------------------------------------------------------------------
+	-- Theming
+	-- --------------------------------------------------------------------------------------
 
-	-- Surround ys/ds/cs
-	use({ "kylechui/nvim-surround", tag = "*" })
+	-- Colorschemes
+	use("folke/tokyonight.nvim")
+	use({ "catppuccin/nvim", as = "catppuccin" })
+	use("f-person/auto-dark-mode.nvim")
 
-	-- Dashboard
-	use({ "goolord/alpha-nvim", requires = { "nvim-tree/nvim-web-devicons" } })
-
-	-- Cute messages UI :D
-	use({ "folke/noice.nvim", requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" } })
-
+	-- --------------------------------------------------------------------------------------
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end

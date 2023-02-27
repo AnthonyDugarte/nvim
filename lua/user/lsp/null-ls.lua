@@ -37,9 +37,14 @@ null_ls.setup({
 	sources = {
 		formatting.prettier,
 		diagnostics.eslint,
+
 		formatting.stylua,
+
 		diagnostics.flake8,
 		formatting.black,
+
+		diagnostics.terraform_validate,
+		formatting.terraform_fmt,
 		-- diagnostics.clang_check,
 		-- formatting.clang_format,
 	},
