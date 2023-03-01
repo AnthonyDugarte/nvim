@@ -6,9 +6,9 @@ end
 
 toggleterm.setup({
 	size = 20,
-	open_mapping = [[<c-\>]],
+	open_mapping = [[\\]],
 	insert_mappings = true,
-	terminal_mappings = false,
+	terminal_mappings = true,
 	direction = "float",
 	shade_terminals = true,
 	shading_factor = 2,

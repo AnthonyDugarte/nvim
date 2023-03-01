@@ -27,21 +27,21 @@ local on_attach = function(client, bufnr)
 	keymap("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", bufopts)
 	keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", bufopts)
 	keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", bufopts)
-	keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", bufopts)
+	keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", bufopts)
+
+	-- keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", bufopts)
+	keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", bufopts)
+
 	keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", bufopts)
-	-- keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", bufopts)
-	-- keymap("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
-	-- keymap("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
-	-- keymap("n", "<leader>wl", function()
-	-- 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-	-- end, bufopts)
+	keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>", bufopts)
+
 	keymap("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", bufopts)
 	keymap("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", bufopts)
-	keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", bufopts)
-	keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", bufopts)
 	keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", bufopts)
 	keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", bufopts)
-	keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", bufopts)
+
+	keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", bufopts)
+	keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", bufopts)
 
 	keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", bufopts)
 end

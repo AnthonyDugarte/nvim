@@ -8,4 +8,9 @@ lspsaga.setup({
 	symbol_in_winbar = {
 		enable = false,
 	},
+
+	ui = {
+		title = true,
+		border = "rounded",
+	},
 })
