@@ -32,7 +32,7 @@ local on_attach = function(client, bufnr)
 	-- keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", bufopts)
 	keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", bufopts)
 
-	keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", bufopts)
+	keymap("n", "gi", "<cmd>Lspsaga goto_definition<CR>", bufopts)
 	keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>", bufopts)
 
 	keymap("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", bufopts)
