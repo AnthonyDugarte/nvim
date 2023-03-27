@@ -1,8 +1,7 @@
 local status_ok, scope = pcall(require, "scope")
 
 if not status_ok then
-  return
+	return
 end
 
-scope.setup {
-}
+scope.setup({})

@@ -155,6 +155,9 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs")
 	use("windwp/nvim-ts-autotag")
 
+	-- yank history
+	use({ "AckslD/nvim-neoclip.lua", requires = { { "nvim-telescope/telescope.nvim" } } })
+
 	-- --------------------------------------------------------------------------------------
 	-- Tools
 	-- --------------------------------------------------------------------------------------

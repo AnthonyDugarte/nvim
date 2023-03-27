@@ -40,8 +40,12 @@ null_ls.setup({
 
 		formatting.stylua,
 
-		diagnostics.flake8,
-		formatting.black,
+		diagnostics.flake8.with({
+			prefer_local = ".venv/bin",
+		}),
+		formatting.black.with({
+			prefer_local = ".venv/bin",
+		}),
 
 		diagnostics.terraform_validate,
 		formatting.terraform_fmt,
