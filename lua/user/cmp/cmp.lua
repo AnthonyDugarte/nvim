@@ -37,8 +37,6 @@ cmp.setup({
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
-			-- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-			-- they way you will only jump inside the snippet region
 			elseif luasnip.expand_or_jumpable() then
 				luasnip.expand_or_jump()
 			elseif has_words_before() then
@@ -59,6 +57,7 @@ cmp.setup({
 		end, { "i", "s" }),
 	}),
 	sources = cmp.config.sources({
+		{ name = "copilot" },
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
@@ -68,6 +67,7 @@ cmp.setup({
 		format = lspkind.cmp_format({
 			maxwidth = 50,
 			ellipsis_char = "...",
+			symbol_map = { Copilot = "" },
 		}),
 	},
 })

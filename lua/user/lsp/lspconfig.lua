@@ -7,12 +7,12 @@ end
 mason_lspconfig.setup({})
 
 -- cmp specific config
-local cmp_status_ok, cpm_lsp = pcall(require, "cmp_nvim_lsp")
+local cmp_status_ok, cmp_lsp = pcall(require, "cmp_nvim_lsp")
 if not cmp_status_ok then
 	return
 end
 
-local capabilities = cpm_lsp.default_capabilities()
+local capabilities = cmp_lsp.default_capabilities()
 
 local status_ok, lspconfig = pcall(require, "lspconfig")
 if not status_ok then

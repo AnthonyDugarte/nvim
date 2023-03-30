@@ -130,6 +130,7 @@ return packer.startup(function(use)
 	use("saadparwaiz1/cmp_luasnip")
 	use("L3MON4D3/LuaSnip")
 	use("rafamadriz/friendly-snippets")
+	use("zbirenbaum/copilot-cmp")
 
 	-- --------------------------------------------------------------------------------------
 	-- Editor
@@ -169,6 +170,10 @@ return packer.startup(function(use)
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 
+	-- AI
+	-- Copilot
+	use("zbirenbaum/copilot.lua")
+
 	-- --------------------------------------------------------------------------------------
 	-- Theming
 	-- --------------------------------------------------------------------------------------
@@ -183,6 +188,7 @@ return packer.startup(function(use)
 	-- --------------------------------------------------------------------------------------
 	use("tweekmonster/startuptime.vim")
 	use("nathom/filetype.nvim")
+	use("rmagatti/auto-session")
 
 	-- --------------------------------------------------------------------------------------
 	if PACKER_BOOTSTRAP then
