@@ -7,5 +7,6 @@ end
 telescope.load_extension("fzf")
 telescope.load_extension("ui-select")
 telescope.load_extension("noice")
+telescope.load_extension("neoclip")
 
 telescope.setup({})

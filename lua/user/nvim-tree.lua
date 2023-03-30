@@ -10,6 +10,7 @@ end
 
 local lib = require("nvim-tree.lib")
 local view = require("nvim-tree.view")
+local api = require("nvim-tree.api")
 
 -- Specific to handle l, L, h, H keymas
 -- Taken from: https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes#h-j-k-l-style-navigation-and-editing
@@ -67,6 +68,12 @@ local git_add = function()
 
 	lib.refresh_tree()
 end
+
+-- Automatically open files on creation
+-- Source: https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes#automatically-open-file-upon-creation
+api.events.subscribe(api.events.Event.FileCreated, function(file)
+	vim.cmd("edit " .. file.fname)
+end)
 
 nvim_tree.setup({
 	filters = {
