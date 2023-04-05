@@ -20,6 +20,10 @@ local has_words_before = function()
 	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
+local cmp_window = require("cmp.config.window")
+
+local cmp_types = require("cmp.types.cmp")
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -33,19 +37,46 @@ cmp.setup({
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.abort(),
-		["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		["<CR>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				local confirm_opts = {
+					behavior = cmp_types.ConfirmBehavior.Replace,
+					select = false,
+				}
+
+				local is_insert_mode = function()
+					return vim.api.nvim_get_mode().mode:sub(1, 1) == "i"
+				end
+				if is_insert_mode() then -- prevent overwriting brackets
+					confirm_opts.behavior = cmp_types.ConfirmBehavior.Insert
+				end
+
+				local entry = cmp.get_selected_entry()
+				local is_copilot = entry and entry.source.name == "copilot"
+				if is_copilot then
+					confirm_opts.behavior = cmp_types.ConfirmBehavior.Replace
+					confirm_opts.select = true
+				end
+
+				if cmp.confirm(confirm_opts) then
+					return -- success, exit early
+				end
+			end
+
+			fallback() -- if not exited early, always fallback
+		end),
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
 			elseif luasnip.expand_or_jumpable() then
 				luasnip.expand_or_jump()
 			elseif has_words_before() then
-				cmp.complete()
+				-- cmp.complete(
+				fallback()
 			else
 				fallback()
 			end
 		end, { "i", "s" }),
-
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
@@ -57,7 +88,7 @@ cmp.setup({
 		end, { "i", "s" }),
 	}),
 	sources = cmp.config.sources({
-		{ name = "copilot" },
+		{ name = "copilot", max_item_count = 3 },
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
@@ -69,5 +100,9 @@ cmp.setup({
 			ellipsis_char = "...",
 			symbol_map = { Copilot = "" },
 		}),
+	},
+	window = {
+		completion = cmp_window.bordered(),
+		documentation = cmp_window.bordered(),
 	},
 })
