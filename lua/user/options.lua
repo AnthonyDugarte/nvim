@@ -1,5 +1,5 @@
 local options = {
-	clipboard = "unnamedplus",
+	-- clipboard = "unnamedplus", -- Default clipboard to system one
 	expandtab = true,
 	tabstop = 2,
 	shiftwidth = 2,

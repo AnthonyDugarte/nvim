@@ -46,7 +46,7 @@ local on_attach = function(client, bufnr)
 	keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", bufopts)
 end
 
-local servers = { "tsserver", "pyright", "lua_ls", "clangd", "kotlin_language_server" }
+local servers = { "tsserver", "pyright", "lua_ls", "clangd", "kotlin_language_server", "sqlls", "marksman" }
 
 for _, server in pairs(servers) do
 	local server_config_status_ok, server_config = pcall(require, "user.lsp.servers." .. server)
