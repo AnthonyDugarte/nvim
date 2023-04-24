@@ -18,7 +18,6 @@ noice.setup({
 		enabled = true,
 		view = "cmdline",
 	},
-
 	views = {
 		cmdline_popup = {
 			border = {

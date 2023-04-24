@@ -2,7 +2,7 @@ local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 
 -- Alias
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -58,3 +58,33 @@ keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
 keymap("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", opts)
 -- Telescope LSP handling
 keymap("n", "<leader>fr", ":Telescope lsp_references<CR>", opts)
+
+-- LSP
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+	callback = function(ev)
+		local bufopts = { noremap = true, silent = true, buffer = ev.buf }
+
+		keymap("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", bufopts)
+		keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", bufopts)
+		keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", bufopts)
+		keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", bufopts)
+
+		-- keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", bufopts)
+		keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", bufopts)
+		keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", bufopts)
+
+		keymap("n", "gi", "<cmd>Lspsaga goto_definition<CR>", bufopts)
+		keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>", bufopts)
+
+		keymap("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", bufopts)
+		keymap("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", bufopts)
+		keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", bufopts)
+		keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", bufopts)
+
+		keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", bufopts)
+		keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", bufopts)
+
+		keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", bufopts)
+	end,
+})

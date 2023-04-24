@@ -94,7 +94,10 @@ return packer.startup(function(use)
 	-- --------------------------------------------------------------------------------------
 
 	-- Core
-	use("williamboman/mason.nvim")
+	use({
+		"williamboman/mason.nvim",
+		run = ":MasonUpdate",
+	})
 	use("williamboman/mason-lspconfig.nvim")
 	use("neovim/nvim-lspconfig")
 
