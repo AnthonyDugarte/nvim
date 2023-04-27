@@ -75,7 +75,6 @@ return packer.startup(function(use)
 		"nvim-telescope/telescope-fzf-native.nvim",
 		run = "make",
 	})
-	use({ "nvim-telescope/telescope-ui-select.nvim" })
 
 	-- Terminal switching
 	use({
@@ -85,9 +84,6 @@ return packer.startup(function(use)
 
 	-- Whichkey
 	use("folke/which-key.nvim")
-
-	-- cmdline / message / popupmenu UI
-	use({ "folke/noice.nvim", requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" } })
 
 	-- --------------------------------------------------------------------------------------
 	-- LSP
@@ -105,15 +101,7 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("jay-babu/mason-null-ls.nvim")
 
-	-- UI
-	use({
-		"glepnir/lspsaga.nvim",
-		branch = "main",
-		requires = {
-			{ "nvim-tree/nvim-web-devicons" },
-			{ "nvim-treesitter/nvim-treesitter" },
-		},
-	})
+	use({ "stevearc/dressing.nvim" })
 
 	-- --------------------------------------------------------------------------------------
 	-- CMP
@@ -152,7 +140,10 @@ return packer.startup(function(use)
 	use("gpanders/editorconfig.nvim")
 
 	-- Treesitter
-	use("nvim-treesitter/nvim-treesitter")
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+	})
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- Auto closing

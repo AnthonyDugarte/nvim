@@ -57,8 +57,7 @@ keymap("n", "<leader>fg", ":Telescope live_grep<CR>")
 keymap("n", "<leader>fb", ":Telescope buffers<CR>")
 keymap("n", "<leader>fh", ":Telescope help_tags<CR>")
 keymap("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>")
--- Telescope LSP handling
-keymap("n", "<leader>fr", ":Telescope lsp_references<CR>")
+keymap("n", "<leader>rt", ":Telescope resume<CR>")
 
 -- LSP
 keymap("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>")
@@ -71,30 +70,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)
 		local lsp_keymap = require("user.utils").keymap_fun_gen({ noremap = true, silent = true, buffer = ev.buf })
 
-		lsp_keymap("n", "gf", "<cmd>Lspsaga lsp_finder<CR>")
 		lsp_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>")
-		-- keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", bufopts)
 		lsp_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
-		lsp_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
+		-- lsp_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
+		keymap("n", "gr", ":Telescope lsp_references<CR>")
+		lsp_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
+		lsp_keymap("n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
 
-		-- keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", bufopts)
 		lsp_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 		lsp_keymap("n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 
-		-- keymap("n", "gi", "<cmd>Lspsaga goto_definition<CR>", bufopts)
-		lsp_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
-		lsp_keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
-
-		lsp_keymap("n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
-		-- keymap("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", bufopts)
-		-- keymap("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", bufopts)
-		-- keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", bufopts)
-		-- keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", bufopts)
-
 		lsp_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-		-- keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", bufopts)
 		lsp_keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-
 		lsp_keymap("n", "<leader>fm", function()
 			vim.lsp.buf.format({
 				async = true,
@@ -102,6 +89,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 					return client.name ~= "tsserver"
 				end,
 			})
-		end)
+		end, { desc = "Format" })
 	end,
 })
