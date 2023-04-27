@@ -23,6 +23,7 @@ keymap("n", "<leader>e", ":NvimTreeFindFileToggle<cr>")
 
 -- Buffers
 keymap("n", "<leader>bd", ":bd<CR>")
+keymap("n", "<leader>x", ":bd<CR>")
 -- keymap("n", "<s-h>", ":bp<CR>")
 -- keymap("n", "<s-l>", ":bn<CR>")
 
@@ -90,10 +91,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", bufopts)
 		-- keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", bufopts)
 
-		lsp_keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>")
+		lsp_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
 		-- keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", bufopts)
 		lsp_keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 
-		lsp_keymap("n", "<leader>fm", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>")
+		lsp_keymap("n", "<leader>fm", function()
+			vim.lsp.buf.format({
+				async = true,
+				filter = function(client)
+					return client.name ~= "tsserver"
+				end,
+			})
+		end)
 	end,
 })
