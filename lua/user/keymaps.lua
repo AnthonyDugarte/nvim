@@ -57,7 +57,7 @@ keymap("n", "<leader>fg", ":Telescope live_grep<CR>")
 keymap("n", "<leader>fb", ":Telescope buffers<CR>")
 keymap("n", "<leader>fh", ":Telescope help_tags<CR>")
 keymap("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>")
-keymap("n", "<leader>rt", ":Telescope resume<CR>")
+keymap("n", "<leader>tt", ":Telescope resume<CR>")
 keymap("n", "<leader>tm", ":Telescope marks<CR>")
 keymap("n", "<leader>tr", ":Telescope registers<CR>")
 
