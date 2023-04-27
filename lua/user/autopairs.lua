@@ -6,4 +6,5 @@ end
 
 autopairs.setup({
 	check_ts = true,
+  fast_wrap = {},
 })
