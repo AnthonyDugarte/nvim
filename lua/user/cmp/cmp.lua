@@ -88,8 +88,8 @@ cmp.setup({
 		end, { "i", "s" }),
 	}),
 	sources = cmp.config.sources({
-		{ name = "copilot", max_item_count = 3 },
 		{ name = "nvim_lsp" },
+		{ name = "copilot", max_item_count = 3 },
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
@@ -99,10 +99,36 @@ cmp.setup({
 			maxwidth = 50,
 			ellipsis_char = "...",
 			symbol_map = { Copilot = "" },
+			mode = "symbol_text",
+			menu = {
+				buffer = "[Buffer]",
+				nvim_lsp = "[LSP]",
+				luasnip = "[LuaSnip]",
+				nvim_lua = "[Lua]",
+				latex_symbols = "[Latex]",
+				path = "[Path]",
+				copilot = "[Copilot]",
+			},
 		}),
 	},
 	window = {
 		completion = cmp_window.bordered(),
 		documentation = cmp_window.bordered(),
 	},
+})
+
+cmp.setup.cmdline({ "/", "?" }, {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = {
+		{ name = "buffer" },
+	},
+})
+
+cmp.setup.cmdline(":", {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = cmp.config.sources({
+		{ name = "path" },
+	}, {
+		{ name = "cmdline" },
+	}),
 })
