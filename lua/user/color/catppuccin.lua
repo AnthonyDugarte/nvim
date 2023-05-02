@@ -5,7 +5,7 @@ if not status_ok then
 end
 
 catppuccin.setup({
-	transparent_background = true,
+	-- transparent_background = true,
 	integrations = {
 		alpha = true,
 		bufferline = true,
