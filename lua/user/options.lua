@@ -14,8 +14,8 @@ local options = {
 	splitright = true,
 	mouse = "a",
 	completeopt = { "menu", "menuone", "noselect" },
-	-- ignorecase = true,
-	-- smartcase = true,
+	ignorecase = true,
+	smartcase = true,
 	laststatus = 3,
 }
 

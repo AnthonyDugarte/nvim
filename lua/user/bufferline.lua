@@ -10,7 +10,7 @@ bufferline.setup({
 	highlights = catppuccin_ok and catppuccin_integration.get() or nil,
 	options = {
 		diagnostics = "nvim_lsp",
-		-- separator_style = "slant",
+		separator_style = "slant",
 		show_buffer_close_icons = false,
 		offsets = {
 			{
