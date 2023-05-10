@@ -52,7 +52,6 @@ return packer.startup(function(use)
 	use({
 		"nvim-tree/nvim-tree.lua",
 		requires = { "nvim-tree/nvim-web-devicons" },
-		tag = "nightly", -- updated every week. (see issue #1193)
 	})
 
 	-- Status Line
@@ -62,7 +61,7 @@ return packer.startup(function(use)
 	})
 
 	-- Buffer tabs
-	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
+	use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" })
 	use("tiagovla/scope.nvim")
 
 	-- Telescope
@@ -79,7 +78,7 @@ return packer.startup(function(use)
 	-- Terminal switching
 	use({
 		"akinsho/toggleterm.nvim",
-		tag = "2.3.0",
+		tag = "*",
 	})
 
 	-- Whichkey
