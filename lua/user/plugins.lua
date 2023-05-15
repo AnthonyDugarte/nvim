@@ -186,6 +186,15 @@ return packer.startup(function(use)
 	use("nathom/filetype.nvim")
 	use("rmagatti/auto-session")
 
+	use({
+		"jackMort/ChatGPT.nvim",
+		requires = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+	})
+
 	-- --------------------------------------------------------------------------------------
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

@@ -7,7 +7,7 @@ end
 treesitter.setup({
 	ensure_installed = "all",
 	ignore_install = { "php", "phpdoc", "java", "fortran" },
-	highligh = {
+	highlight = {
 		enable = true,
 	},
 	indent = {
