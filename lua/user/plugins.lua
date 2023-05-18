@@ -78,9 +78,6 @@ return packer.startup(function(use)
 		tag = "*",
 	})
 
-  -- Better UI things
-	use({ "stevearc/dressing.nvim" })
-
 	-- Whichkey
 	use("folke/which-key.nvim")
 

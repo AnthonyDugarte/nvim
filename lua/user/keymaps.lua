@@ -24,14 +24,14 @@ keymap("n", "<leader>e", ":NvimTreeFindFileToggle<cr>")
 -- Buffers
 keymap("n", "<leader>bd", ":bd<CR>")
 keymap("n", "<leader>x", ":bd<CR>")
--- keymap("n", "<s-h>", ":bp<CR>")
--- keymap("n", "<s-l>", ":bn<CR>")
+keymap("n", "<s-h>", ":bp<CR>")
+keymap("n", "<s-l>", ":bn<CR>")
 
 -- Bufferline approach
-keymap("n", "<s-h>", ":BufferLineCyclePrev<CR>")
-keymap("n", "<s-l>", ":BufferLineCycleNext<CR>")
-keymap("n", "[b", ":BufferLineMovePrev<CR>")
-keymap("n", "]b", ":BufferLineMoveNext<CR>")
+-- keymap("n", "<s-h>", ":BufferLineCyclePrev<CR>")
+-- keymap("n", "<s-l>", ":BufferLineCycleNext<CR>")
+-- keymap("n", "[b", ":BufferLineMovePrev<CR>")
+-- keymap("n", "]b", ":BufferLineMoveNext<CR>")
 
 -- Windows movement
 keymap("n", "<C-h>", "<C-w>h")
@@ -74,8 +74,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		lsp_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>")
 		lsp_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
-		-- lsp_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
-		keymap("n", "gr", ":Telescope lsp_references<CR>")
+		lsp_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
+		-- keymap("n", "gr", ":Telescope lsp_references<CR>")
 		lsp_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
 		lsp_keymap("n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
 
