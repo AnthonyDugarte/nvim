@@ -45,9 +45,6 @@ return packer.startup(function(use)
 	-- Visual Things
 	-- --------------------------------------------------------------------------------------
 
-	-- Dashboard
-	use({ "goolord/alpha-nvim", requires = { "nvim-tree/nvim-web-devicons" } })
-
 	-- File Explorer
 	use({
 		"nvim-tree/nvim-tree.lua",
@@ -81,6 +78,9 @@ return packer.startup(function(use)
 		tag = "*",
 	})
 
+  -- Better UI things
+	use({ "stevearc/dressing.nvim" })
+
 	-- Whichkey
 	use("folke/which-key.nvim")
 
@@ -100,7 +100,6 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("jay-babu/mason-null-ls.nvim")
 
-	use({ "stevearc/dressing.nvim" })
 
 	-- --------------------------------------------------------------------------------------
 	-- CMP
@@ -177,12 +176,10 @@ return packer.startup(function(use)
 	-- Colorschemes
 	use("folke/tokyonight.nvim")
 	use({ "catppuccin/nvim", as = "catppuccin" })
-	use("f-person/auto-dark-mode.nvim")
 
 	-- --------------------------------------------------------------------------------------
 	-- Misc
 	-- --------------------------------------------------------------------------------------
-	use("tweekmonster/startuptime.vim")
 	use("nathom/filetype.nvim")
 	use("rmagatti/auto-session")
 

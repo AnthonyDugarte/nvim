@@ -7,7 +7,6 @@ end
 catppuccin.setup({
 	-- transparent_background = true,
 	integrations = {
-		alpha = true,
 		bufferline = true,
 		cmp = true,
 		gitsigns = true,
