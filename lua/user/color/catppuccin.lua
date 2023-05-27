@@ -5,7 +5,6 @@ if not status_ok then
 end
 
 catppuccin.setup({
-	-- transparent_background = true,
 	integrations = {
 		bufferline = true,
 		cmp = true,
@@ -14,9 +13,7 @@ catppuccin.setup({
 			enabled = true,
 			colored_indent_levels = false,
 		},
-		-- lsp_saga = true,
 		mason = true,
-		-- notify = true,
 		native_lsp = {
 			enabled = true,
 		},

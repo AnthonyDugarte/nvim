@@ -1,27 +1,30 @@
-local options = {
-	-- clipboard = "unnamedplus", -- Default clipboard to system one
-	expandtab = true,
-	tabstop = 2,
-	shiftwidth = 2,
-	cursorline = true,
-	number = true,
-	relativenumber = true,
-	signcolumn = "yes",
-	wrap = false,
-	showmode = false,
-	termguicolors = true,
-	splitbelow = true,
-	splitright = true,
-	mouse = "a",
-	completeopt = { "menu", "menuone", "noselect" },
-	ignorecase = true,
-	smartcase = true,
-	laststatus = 3,
-}
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+vim.o.number = true
+vim.o.relativenumber = true
+
+vim.o.signcolumn = "yes"
+vim.o.showmode = false
+vim.o.breakindent = true
+
+vim.o.termguicolors = true
+
+vim.o.splitbelow = true
+vim.o.splitright = true
+
+vim.o.mouse = "a"
+
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+vim.o.updatetime = 250
+vim.o.timeout = true
+vim.o.timeoutlen = 300
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-for k, v in pairs(options) do
-	vim.opt[k] = v
-end
+-- vim.o.clipboard = "unnamedplus" -- Default clipboard to system on

@@ -1,50 +1,19 @@
 -- Alias
 local keymap = require("user.utils").keymap
-local term_keymap = require("user.utils").keymap_fun_gen({ silent = true })
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>")
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-keymap("n", "<C-Space>", "<cmd>WhichKey \\<leader><cr>")
-keymap("n", "<C-i>", "<C-i>")
 
-keymap("n", "<C-s>", "<cmd> w <CR>", { desc = "save file" })
+-- Remap for dealing with word wrap
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- TreeToggle
-keymap("n", "<leader>e", ":NvimTreeFindFileToggle<cr>")
-
--- Tabs (works weird when closing buffers)
--- keymap("n", "<enter>", ":tabnew %<cr>")
--- keymap("n", "<s-enter>", ":tabclose<cr>")
--- keymap("n", "<m-\\>", ":tabonly<cr>")
--- keymap("n", "<s-j>", ":tabp<CR>")
--- keymap("n", "<s-k>", ":tabn<CR>")
+keymap("n", "<leader>e", ":NvimTreeToggle<cr>")
 
 -- Buffers
-keymap("n", "<leader>bd", ":bd<CR>")
-keymap("n", "<leader>x", ":bd<CR>")
-keymap("n", "<s-h>", ":bp<CR>")
-keymap("n", "<s-l>", ":bn<CR>")
-
--- Bufferline approach
--- keymap("n", "<s-h>", ":BufferLineCyclePrev<CR>")
--- keymap("n", "<s-l>", ":BufferLineCycleNext<CR>")
--- keymap("n", "[b", ":BufferLineMovePrev<CR>")
--- keymap("n", "]b", ":BufferLineMoveNext<CR>")
-
--- Windows movement
-keymap("n", "<C-h>", "<C-w>h")
-keymap("n", "<C-j>", "<C-w>j")
-keymap("n", "<C-k>", "<C-w>k")
-keymap("n", "<C-l>", "<C-w>l")
--- Terminal
-term_keymap("t", "<C-h>", "<cmd>wincmd h<CR>")
-term_keymap("t", "<C-j>", "<cmd>wincmd j<CR>")
-term_keymap("t", "<C-k>", "<cmd>wincmd k<CR>")
-term_keymap("t", "<C-l>", "<cmd>wincmd l<CR>")
--- Interations
-term_keymap("n", "<C-|>", ":ToggleTermToggleAll")
+-- keymap("n", "<leader>bd", ":bd<CR>")
+-- keymap("n", "<leader>x", ":bd<CR>")
 
 -- Visual
 -- Keep visual mode on identation
