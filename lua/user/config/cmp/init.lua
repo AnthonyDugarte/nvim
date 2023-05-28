@@ -1,17 +1,7 @@
-local status_ok, cmp = pcall(require, "cmp")
-if not status_ok then
-	return
-end
+local cmp = require("cmp")
+local lspkind = require("lspkind")
+local luasnip = require("luasnip")
 
-local lspkind_status_ok, lspkind = pcall(require, "lspkind")
-if not lspkind_status_ok then
-	return
-end
-
-local luasnip_status_ok, luasnip = pcall(require, "luasnip")
-if not luasnip_status_ok then
-	return
-end
 require("luasnip.loaders.from_vscode").lazy_load()
 
 local has_words_before = function()
@@ -21,8 +11,12 @@ local has_words_before = function()
 end
 
 local cmp_window = require("cmp.config.window")
-
 local cmp_types = require("cmp.types.cmp")
+
+local comp_autopairs_ok, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
+if comp_autopairs_ok then
+	cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+end
 
 cmp.setup({
 	snippet = {

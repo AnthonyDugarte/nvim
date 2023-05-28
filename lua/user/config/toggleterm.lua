@@ -1,8 +1,4 @@
-local status_ok, toggleterm = pcall(require, "toggleterm")
-
-if not status_ok then
-	return
-end
+local toggleterm = require("toggleterm")
 
 toggleterm.setup({
 	size = 20,
@@ -12,7 +8,6 @@ toggleterm.setup({
 	direction = "float",
 	shade_terminals = true,
 	shading_factor = 2,
-
 	float_opts = {
 		border = "curved",
 		winblend = 0,

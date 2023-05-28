@@ -1,8 +1,4 @@
-local status_ok, gitsigns = pcall(require, "gitsigns")
-
-if not status_ok then
-	return
-end
+local gitsigns = require("gitsigns")
 
 local on_attach = function(bufnr)
 	local keymap = require("user.utils").keymap_fun_gen({ buffer = bufnr })
@@ -52,11 +48,11 @@ end
 
 gitsigns.setup({
 	signs = {
-		add = { text = '+' },
-		change = { text = '~' },
-		delete = { text = '_' },
-		topdelete = { text = '‾' },
-		changedelete = { text = '~' },
+		add = { text = "+" },
+		change = { text = "~" },
+		delete = { text = "_" },
+		topdelete = { text = "‾" },
+		changedelete = { text = "~" },
 	},
 	on_attach = on_attach,
 })
