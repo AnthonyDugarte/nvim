@@ -19,14 +19,24 @@ keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
 
 -- Telescope
-keymap("n", "<leader>ff", ":Telescope find_files<CR>")
-keymap("n", "<leader>fg", ":Telescope live_grep<CR>")
-keymap("n", "<leader>fb", ":Telescope buffers<CR>")
-keymap("n", "<leader>fh", ":Telescope help_tags<CR>")
-keymap("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>")
-keymap("n", "<leader>tt", ":Telescope resume<CR>")
-keymap("n", "<leader>tm", ":Telescope marks<CR>")
-keymap("n", "<leader>tr", ":Telescope registers<CR>")
+keymap("n", "<leader>?", ":Telescope oldfiles<CR>", { desc = "[?] Find recently opened files" })
+keymap("n", "<leader><space>", ":Telescope buffers<CR>", { desc = "[ ] Find existing buffers" })
+keymap("n", "<leader>/", function()
+	-- You can pass additional configuration to telescope to change theme, layout, etc.
+	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+		winblend = 10,
+		previewer = false,
+	}))
+end, { desc = "[/] Fuzzily search in current buffer" })
+keymap("n", "<leader>gf", ":Telescope git_files<CR>", { desc = "Search [G]it [F]iles" })
+keymap("n", "<leader>sf", ":Telescope find_files<CR>", { desc = "[S]earch [F]iles" })
+keymap("n", "<leader>sh", ":Telescope help_tags<CR>", { desc = "[S]earch [H]elp" })
+keymap("n", "<leader>sw", ":Telescope grep_string<CR>", { desc = "[S]earch current [W]ord" })
+keymap("n", "<leader>sg", ":Telescope live_grep<CR>", { desc = "[S]earch by [G]rep" })
+keymap("n", "<leader>sd", ":Telescope diagnostics<CR>", { desc = "[S]earch [D]iagnostics" })
+keymap("n", "<leader>tt", ":Telescope resume<CR>", { desc = "[T]elescope [T]oggle" })
+keymap("n", "<leader>sm", ":Telescope marks<CR>", { desc = "[S]earch [M]arks" })
+keymap("n", "<leader>sr", ":Telescope registers<CR>", { desc = "[S]earch [R]egisters" })
 
 -- LSP
 keymap("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>")

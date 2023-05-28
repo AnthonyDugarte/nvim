@@ -72,6 +72,7 @@ return {
 	{
 		"nvim-tree/nvim-tree.lua",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
+		cmd = { "NvimTreeToggle", "NvimTreeFindFileToggle", "NvimTreeOpen", "NvimTreeFocus" },
 		config = function()
 			require("user.config.nvim-tree")
 		end,
@@ -81,6 +82,9 @@ return {
 		opts = {
 			log_level = "error",
 			auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+			session_lens = {
+				load_on_setup = false,
+			},
 		},
 	},
 	{
@@ -88,12 +92,8 @@ return {
 		opts = {},
 	},
 	{
-		"AckslD/nvim-neoclip.lua",
-		opts = {},
-		dependencies = { { "nvim-telescope/telescope.nvim" } },
-	},
-	{
 		"lukas-reineke/indent-blankline.nvim",
+		event = "BufRead",
 		opts = {
 			char = "┊",
 			use_treesitter = true,
@@ -112,6 +112,7 @@ return {
 	},
 	{
 		"windwp/nvim-autopairs",
+		event = "InsertEnter",
 		opts = {
 			check_ts = true,
 			fast_wrap = {},
@@ -121,16 +122,18 @@ return {
 		"kylechui/nvim-surround",
 		version = "*",
 		opts = {},
+		event = "BufRead",
 	},
 	{
 		"lewis6991/gitsigns.nvim",
+		event = "BufRead",
 		config = function()
 			require("user.config.gitsigns")
 		end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
-		event = "VeryLazy",
+		event = "BufRead",
 		build = ":TSUpdate",
 		dependencies = {
 			"JoosepAlviste/nvim-ts-context-commentstring",
@@ -145,13 +148,13 @@ return {
 		dependencies = {
 			"JoosepAlviste/nvim-ts-context-commentstring",
 		},
+		event = "BufRead",
 		opts = function()
 			return {
 				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
 			}
 		end,
 	},
-
 	{
 		"jackMort/ChatGPT.nvim",
 		dependencies = {
@@ -201,28 +204,34 @@ return {
 	{
 		"akinsho/toggleterm.nvim",
 		version = "*",
+		event = "VeryLazy",
 		config = function()
 			require("user.config.toggleterm")
 		end,
 	},
-
 	{
 		"nvim-telescope/telescope.nvim",
 		version = "0.1.1",
+		cmd = "Telescope",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
 				build = "make",
 			},
+			"nvim-telescope/telescope-file-browser.nvim",
+			{
+				"AckslD/nvim-neoclip.lua",
+				opts = {},
+			},
 		},
 		config = function()
 			require("user.config.telescope")
 		end,
 	},
-
 	{
 		"neovim/nvim-lspconfig",
+		event = "BufRead",
 		dependencies = {
 			{
 				"williamboman/mason.nvim",
