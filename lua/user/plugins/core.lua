@@ -83,7 +83,14 @@ return {
 			{ "williamboman/mason-lspconfig.nvim", opts = {} },
 			"jose-elias-alvarez/null-ls.nvim",
 			"hrsh7th/cmp-nvim-lsp",
-			{ "j-hui/fidget.nvim", opts = {} },
+			{
+				"j-hui/fidget.nvim",
+				opts = {
+					window = {
+						blend = 0,
+					},
+				},
+			},
 		},
 		config = function()
 			require("user.config.lsp")

@@ -28,7 +28,7 @@ local lazygit = Terminal:new({
 		vim.cmd("set laststatus=0")
 	end,
 	on_close = function(_)
-		vim.cmd("set laststatus=3")
+		vim.cmd("set laststatus=2")
 	end,
 	count = 99,
 })

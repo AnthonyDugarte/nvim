@@ -10,9 +10,15 @@ return {
 		"catppuccin/nvim",
 		name = "catppuccin",
 		opts = {
+			dim_inactive = {
+				enabled = false,
+				shade = "dark",
+				percentage = 0.15,
+			},
 			integrations = {
 				bufferline = true,
 				cmp = true,
+				fidget = true,
 				gitsigns = true,
 				indent_blankline = {
 					enabled = true,
@@ -35,9 +41,7 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		opts = {
-			icons_enabled = false,
-			component_separators = "|",
-			section_separators = "",
+			theme = "catppuccin",
 		},
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
@@ -51,23 +55,27 @@ return {
 				"tiagovla/scope.nvim",
 				opts = {},
 			},
+			"catppuccin/nvim",
 		},
-		opts = {
-			options = {
-				diagnostics = "nvim_lsp",
-				separator_style = "slant",
-				show_buffer_close_icons = false,
-				offsets = {
-					{
-						filetype = "NvimTree",
-						text = "File Explorer",
-						highligh = "Directory",
-						sparator = true,
-						padding = 1,
+		opts = function()
+			return {
+				highlights = require("catppuccin.groups.integrations.bufferline").get(),
+				options = {
+					diagnostics = "nvim_lsp",
+					separator_style = "slant",
+					show_buffer_close_icons = false,
+					offsets = {
+						{
+							filetype = "NvimTree",
+							text = "File Explorer",
+							highligh = "Directory",
+							sparator = true,
+							padding = 1,
+						},
 					},
 				},
-			},
-		},
+			}
+		end,
 	},
 	{
 		"nvim-tree/nvim-tree.lua",

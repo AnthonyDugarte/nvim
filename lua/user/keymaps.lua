@@ -3,11 +3,12 @@ local keymap = require("user.utils").keymap
 keymap("", "<Space>", "<Nop>")
 
 -- Remap for dealing with word wrap
-keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
-keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
+-- keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
+-- keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
 -- TreeToggle
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>")
+keymap("n", "<leader>o", ":NvimTreeFindFileToggle<cr>")
 
 -- Buffers
 -- keymap("n", "<leader>bd", ":bd<CR>")
