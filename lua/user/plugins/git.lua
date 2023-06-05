@@ -6,4 +6,7 @@ return {
 			require("user.config.gitsigns")
 		end,
 	},
+
+	'tpope/vim-fugitive',
+	'tpope/vim-rhubarb',
 }
