@@ -11,6 +11,7 @@ return {
 	},
 	{
 		"nathom/filetype.nvim",
+		enabled = false,
 		opts = {
 			overrides = {
 				extensions = {

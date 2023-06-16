@@ -2,12 +2,12 @@ local toggleterm = require("toggleterm")
 
 toggleterm.setup({
 	size = 20,
-	open_mapping = [[\\]],
+	open_mapping = [[<c-\>]],
 	insert_mappings = true,
 	terminal_mappings = true,
 	direction = "float",
 	shade_terminals = true,
-	shading_factor = 2,
+	shading_factor = 20,
 	float_opts = {
 		border = "curved",
 		winblend = 0,
@@ -22,14 +22,14 @@ local Terminal = require("toggleterm.terminal").Terminal
 local lazygit = Terminal:new({
 	cmd = "lazygit",
 	hidden = true,
-	direction = "tab",
-	on_open = function(_)
-		vim.cmd("startinsert!")
-		vim.cmd("set laststatus=0")
-	end,
-	on_close = function(_)
-		vim.cmd("set laststatus=2")
-	end,
+	-- direction = "tab",
+	-- on_open = function(_)
+	-- 	vim.cmd("startinsert!")
+	-- 	vim.cmd("set laststatus=0")
+	-- end,
+	-- on_close = function(_)
+	-- 	vim.cmd("set laststatus=2")
+	-- end,
 	count = 99,
 })
 

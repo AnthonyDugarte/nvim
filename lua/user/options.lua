@@ -26,6 +26,6 @@ vim.o.timeoutlen = 300
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.g.did_load_filetypes = 1
+-- vim.g.did_load_filetypes = 1
 
 -- vim.o.clipboard = "unnamedplus" -- Default clipboard to system on
