@@ -41,7 +41,13 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		opts = {
-			theme = "catppuccin",
+			options = {
+				theme = "catppuccin",
+				disabled_filetypes = { "NvimTree" },
+			},
+			sections = {
+				lualine_z = { { "datetime", style = "%H:%M" } },
+			},
 		},
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
@@ -95,6 +101,7 @@ return {
 		opts = {
 			char = "┊",
 			use_treesitter = true,
+			show_end_of_line = true,
 			show_current_context = true,
 		},
 	},

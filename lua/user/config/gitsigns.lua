@@ -44,6 +44,9 @@ local on_attach = function(bufnr)
 		gitsigns.diffthis("~")
 	end, { desc = "Diff this" })
 	keymap("n", "<leader>td", "<cmd>Gitsigns toggle_deleted<CR>")
+
+	-- Text object
+	keymap({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
 end
 
 gitsigns.setup({
@@ -53,6 +56,10 @@ gitsigns.setup({
 		delete = { text = "_" },
 		topdelete = { text = "‾" },
 		changedelete = { text = "~" },
+	},
+	current_line_blame_opts = {
+		virt_text_pos = "right_align",
+		delay = 400,
 	},
 	on_attach = on_attach,
 })

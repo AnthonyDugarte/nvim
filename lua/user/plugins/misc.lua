@@ -28,7 +28,7 @@ return {
 			"nvim-telescope/telescope.nvim",
 		},
 		opts = {
-			api_key_cmd = "gpg --decrypt ~/.secret/openai.txt.gpg 2>/dev/null",
+			api_key_cmd = "gpg --decrypt " .. vim.fn.expand("$HOME") .. "/.secret/openai.txt.gpg",
 		},
 		cmd = { "ChatGPT", "ChatGPTActAs", "ChatGPTEditWithInstructions", "ChatGPTRun" },
 	},
