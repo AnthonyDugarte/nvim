@@ -80,7 +80,17 @@ return {
 				build = ":MasonUpdate",
 				opts = {},
 			},
-			{ "williamboman/mason-lspconfig.nvim", opts = {} },
+			{
+				"williamboman/mason-lspconfig.nvim",
+				opts = {
+					-- lspconfig servers should be automatically installed
+					automatic_installation = true,
+				},
+				dependencies = {
+
+					"williamboman/mason.nvim",
+				}
+			},
 			"jose-elias-alvarez/null-ls.nvim",
 			"hrsh7th/cmp-nvim-lsp",
 			{

@@ -13,7 +13,7 @@ null_ls.setup({
 		formatting.prettier,
 		diagnostics.eslint,
 
-		formatting.stylua,
+		-- formatting.stylua,
 
 		diagnostics.flake8.with({
 			prefer_local = ".venv/bin",
