@@ -101,7 +101,6 @@ return {
 		opts = {
 			char = "┊",
 			use_treesitter = true,
-			show_end_of_line = true,
 			show_current_context = true,
 		},
 	},
@@ -115,11 +114,11 @@ return {
 				"nvim-telescope/telescope-fzf-native.nvim",
 				build = "make",
 			},
-			"nvim-telescope/telescope-file-browser.nvim",
 			{
 				"AckslD/nvim-neoclip.lua",
 				opts = {},
 			},
+			"nvim-telescope/telescope-live-grep-args.nvim",
 		},
 		config = function()
 			require("user.config.telescope")

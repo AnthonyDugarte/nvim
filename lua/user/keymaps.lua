@@ -6,6 +6,8 @@ keymap("", "<Space>", "<Nop>")
 -- keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 -- keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
+keymap("n", "<leader>cc", ":bp<CR>:bd #<CR>", { desc = "[CC]lose Buffer" })
+
 -- TreeToggle
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>")
 keymap("n", "<leader>o", ":NvimTreeFindFileToggle<cr>")
@@ -33,7 +35,7 @@ end, { desc = "[/] Fuzzily search in current buffer" })
 keymap("n", "<leader>sf", ":Telescope find_files<CR>", { desc = "[S]earch [F]iles" })
 keymap("n", "<leader>sh", ":Telescope help_tags<CR>", { desc = "[S]earch [H]elp" })
 keymap("n", "<leader>sw", ":Telescope grep_string<CR>", { desc = "[S]earch current [W]ord" })
-keymap("n", "<leader>sg", ":Telescope live_grep<CR>", { desc = "[S]earch by [G]rep" })
+keymap("n", "<leader>sg", ":Telescope live_grep_args<CR>", { desc = "[S]earch by [G]rep" })
 keymap("n", "<leader>sd", ":Telescope diagnostics<CR>", { desc = "[S]earch [D]iagnostics" })
 keymap("n", "<leader>tt", ":Telescope resume<CR>", { desc = "[T]elescope [T]oggle" })
 keymap("n", "<leader>sm", ":Telescope marks<CR>", { desc = "[S]earch [M]arks" })
