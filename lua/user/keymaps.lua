@@ -56,7 +56,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		lsp_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
 		lsp_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
 		-- keymap("n", "gr", ":Telescope lsp_references<CR>")
-		lsp_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { desc = "Go to [I]mplementation" })
+		lsp_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { desc = "[G]o to [I]mplementation" })
 		lsp_keymap("n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
 
 		lsp_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
@@ -71,6 +71,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 					return client.name ~= "tsserver"
 				end,
 			})
-		end, { desc = "Format" })
+		end, { desc = "[F]or[m]at" })
 	end,
 })

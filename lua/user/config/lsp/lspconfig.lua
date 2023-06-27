@@ -7,19 +7,28 @@ local servers = {
 	{
 		"tsserver",
 		{
-			commands = {
-				OrganizeImports = {
-					function()
-						local params = {
-							command = "_typescript.organizeImports",
-							arguments = { vim.api.nvim_buf_get_name(0) },
-							title = "",
-						}
-						vim.lsp.buf.execute_command(params)
-					end,
-					description = "Organize Imports",
-				},
-			},
+			on_attach = function(client, bufnr)
+				local function organize_imports()
+					local params = {
+						command = "_typescript.organizeImports",
+						arguments = { vim.api.nvim_buf_get_name(0) },
+					}
+					vim.lsp.buf.execute_command(params)
+				end
+
+
+				local lsp_keymap = require("user.utils").keymap_fun_gen({
+					noremap = true,
+					silent = true,
+					buffer = bufnr
+				})
+
+				vim.api.nvim_buf_create_user_command(bufnr, "OrganizeImports", organize_imports,
+					{ desc = 'Organize Imports' })
+
+				lsp_keymap("n", "<leader>fi", "<Cmd>:OrganizeImports<CR>",
+					{ desc = "Organize [I]mports [F]ormat" })
+			end,
 		},
 	},
 	"pyright",
