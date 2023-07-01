@@ -41,6 +41,13 @@ keymap("n", "<leader>tt", ":Telescope resume<CR>", { desc = "[T]elescope [T]oggl
 keymap("n", "<leader>sm", ":Telescope marks<CR>", { desc = "[S]earch [M]arks" })
 keymap("n", "<leader>sr", ":Telescope registers<CR>", { desc = "[S]earch [R]egisters" })
 
+-- Trouble
+keymap("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { silent = true })
+keymap("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", { silent = true })
+keymap("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", { silent = true })
+keymap("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", { silent = true })
+keymap("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", { silent = true })
+
 -- LSP
 keymap("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>")
 keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
@@ -54,8 +61,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		lsp_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>")
 		lsp_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
+
 		lsp_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
-		-- keymap("n", "gr", ":Telescope lsp_references<CR>")
+		-- lsp_keymap("n", "gr", ":Telescope lsp_references<CR>")
+		lsp_keymap("n", "gR", "<cmd>TroubleToggle lsp_references<CR>")
+
 		lsp_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { desc = "[G]o to [I]mplementation" })
 		lsp_keymap("n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
 

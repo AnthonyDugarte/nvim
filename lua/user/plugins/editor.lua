@@ -21,6 +21,7 @@ return {
 				cmp = true,
 				fidget = true,
 				gitsigns = true,
+				lsp_trouble = true,
 				indent_blankline = {
 					enabled = true,
 					colored_indent_levels = false,
@@ -108,7 +109,7 @@ return {
 			vim.api.nvim_create_autocmd({ "BufEnter" }, {
 				pattern = "NvimTree*",
 				callback = function()
-					local api = require('nvim-tree.api')
+					local api = require("nvim-tree.api")
 
 					if not api.tree.is_visible() then
 						api.tree.open()
@@ -148,6 +149,7 @@ return {
 				opts = {},
 			},
 			"nvim-telescope/telescope-live-grep-args.nvim",
+			"folke/trouble.nvim",
 		},
 		config = function()
 			require("user.config.telescope")
@@ -160,5 +162,10 @@ return {
 		config = function()
 			require("user.config.toggleterm")
 		end,
+	},
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		cmd = { "TroubleToggle", "Trouble" },
 	},
 }
