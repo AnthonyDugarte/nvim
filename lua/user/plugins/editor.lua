@@ -87,6 +87,19 @@ return {
 		"nvim-tree/nvim-tree.lua",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		cmd = { "NvimTreeToggle", "NvimTreeFindFileToggle", "NvimTreeOpen", "NvimTreeFocus" },
+		init = function()
+			-- https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes#workaround-when-using-rmagattiauto-session
+			vim.api.nvim_create_autocmd({ "BufEnter" }, {
+				pattern = "NvimTree*",
+				callback = function()
+					local api = require('nvim-tree.api')
+
+					if not api.tree.is_visible() then
+						api.tree.open()
+					end
+				end,
+			})
+		end,
 		config = function()
 			require("user.config.nvim-tree")
 		end,

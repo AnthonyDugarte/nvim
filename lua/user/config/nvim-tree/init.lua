@@ -8,16 +8,6 @@ api.events.subscribe(api.events.Event.FileCreated, function(file)
 	vim.cmd("edit " .. file.fname)
 end)
 
--- https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes#workaround-when-using-rmagattiauto-session
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-	pattern = "NvimTree*",
-	callback = function()
-		if not api.tree.is_visible() then
-			api.tree.open()
-		end
-	end,
-})
-
 local HEIGHT_RATIO = 0.8
 local WIDTH_RATIO = 0.5
 
@@ -52,7 +42,7 @@ require("nvim-tree").setup({
 	},
 	actions = {
 		open_file = {
-			quit_on_open = true,
+			quit_on_open = false,
 		}
 	},
 	diagnostics = {
