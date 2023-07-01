@@ -68,7 +68,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.lsp.buf.format({
 				async = true,
 				filter = function(client)
-					return client.name ~= "tsserver"
+					return client.name ~= "tsserver" and client.name ~= "lua_ls"
 				end,
 			})
 		end, { desc = "[F]or[m]at" })

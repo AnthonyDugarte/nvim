@@ -16,18 +16,20 @@ local servers = {
 					vim.lsp.buf.execute_command(params)
 				end
 
-
 				local lsp_keymap = require("user.utils").keymap_fun_gen({
 					noremap = true,
 					silent = true,
-					buffer = bufnr
+					buffer = bufnr,
 				})
 
-				vim.api.nvim_buf_create_user_command(bufnr, "OrganizeImports", organize_imports,
-					{ desc = 'Organize Imports' })
+				vim.api.nvim_buf_create_user_command(
+					bufnr,
+					"OrganizeImports",
+					organize_imports,
+					{ desc = "Organize Imports" }
+				)
 
-				lsp_keymap("n", "<leader>fi", "<Cmd>:OrganizeImports<CR>",
-					{ desc = "Organize [I]mports [F]ormat" })
+				lsp_keymap("n", "<leader>fi", "<Cmd>:OrganizeImports<CR>", { desc = "Organize [I]mports [F]ormat" })
 			end,
 		},
 	},
@@ -37,6 +39,17 @@ local servers = {
 	"kotlin_language_server",
 	"sqlls",
 	"marksman",
+	{
+		"jsonls",
+		{
+			settings = {
+				json = {
+					schemas = require("schemastore").json.schemas(),
+					validate = { enable = true },
+				},
+			},
+		},
+	},
 }
 
 for _, server_spec in pairs(servers) do

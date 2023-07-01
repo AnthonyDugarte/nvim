@@ -9,6 +9,7 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
+		priority = 1000,
 		opts = {
 			dim_inactive = {
 				enabled = false,
@@ -27,6 +28,21 @@ return {
 				mason = true,
 				native_lsp = {
 					enabled = true,
+					virtual_text = {
+						errors = { "italic" },
+						hints = { "italic" },
+						warnings = { "italic" },
+						information = { "italic" },
+					},
+					underlines = {
+						errors = { "underline" },
+						hints = { "underline" },
+						warnings = { "underline" },
+						information = { "underline" },
+					},
+					inlay_hints = {
+						background = true,
+					},
 				},
 				nvimtree = true,
 				telescope = true,
@@ -110,7 +126,7 @@ return {
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		event = "BufRead",
+		priority = 999,
 		opts = {
 			char = "┊",
 			use_treesitter = true,

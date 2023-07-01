@@ -24,8 +24,8 @@ vim.o.updatetime = 250
 vim.o.timeout = true
 vim.o.timeoutlen = 300
 
-vim.opt.list = true
-vim.opt.listchars:append("tab:▸ ")
+-- vim.opt.list = true
+-- vim.opt.listchars:append("tab:▸ ")
 -- vim.opt.listchars:append("eol:↴")
 
 vim.g.loaded_netrw = 1

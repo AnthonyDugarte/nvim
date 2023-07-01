@@ -101,6 +101,7 @@ return {
 					},
 				},
 			},
+			"b0o/schemastore.nvim",
 		},
 		config = function()
 			require("user.config.lsp")
