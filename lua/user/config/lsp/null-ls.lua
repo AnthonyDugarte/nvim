@@ -10,8 +10,15 @@ local code_actions = null_ls.builtins.code_actions
 
 null_ls.setup({
 	sources = {
+		-- code_actions.gitsigns,
+
+		diagnostics.terraform_validate,
+		formatting.terraform_fmt,
+
 		formatting.prettier,
 		diagnostics.eslint,
+
+		-- code_actions.eslint,
 
 		formatting.stylua,
 
@@ -21,10 +28,5 @@ null_ls.setup({
 		formatting.black.with({
 			prefer_local = ".venv/bin",
 		}),
-
-		diagnostics.terraform_validate,
-		formatting.terraform_fmt,
-
-		code_actions.gitsigns,
 	},
 })
