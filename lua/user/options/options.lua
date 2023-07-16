@@ -24,6 +24,10 @@ vim.o.updatetime = 250
 vim.o.timeout = true
 vim.o.timeoutlen = 300
 
+-- go to previous/next line with h,l,left arrow and right arrow
+-- when cursor reaches end/beginning of line
+vim.opt.whichwrap:append "<>[]hl"
+
 -- vim.opt.list = true
 -- vim.opt.listchars:append("tab:▸ ")
 -- vim.opt.listchars:append("eol:↴")

@@ -78,7 +78,15 @@ return {
 			{
 				"williamboman/mason.nvim",
 				build = ":MasonUpdate",
-				opts = {},
+				opts = {
+					ui = {
+						icons = {
+							package_pending = " ",
+							package_installed = "󰄳 ",
+							package_uninstalled = " 󰚌",
+						},
+					},
+				},
 			},
 			{
 				"williamboman/mason-lspconfig.nvim",
@@ -89,7 +97,7 @@ return {
 				dependencies = {
 
 					"williamboman/mason.nvim",
-				}
+				},
 			},
 			"jose-elias-alvarez/null-ls.nvim",
 			"hrsh7th/cmp-nvim-lsp",

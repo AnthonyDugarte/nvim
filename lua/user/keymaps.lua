@@ -12,6 +12,9 @@ keymap("n", "<leader>cc", ":bp<CR>:bd #<CR>", { desc = "[CC]lose Buffer" })
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>")
 keymap("n", "<leader>o", ":NvimTreeFindFileToggle<cr>")
 
+keymap("n", "<leader>tn", "<cmd> set nu! <CR>", { desc = "[T]oggle line [N]umber" })
+keymap("n", "<leader>trn", "<cmd> set rnu! <CR>", { desc = "[T]oggle relative [N]umber" })
+
 -- Buffers
 -- keymap("n", "<leader>bd", ":bd<CR>")
 -- keymap("n", "<leader>x", ":bd<CR>")
@@ -50,8 +53,8 @@ keymap("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", { silent = true })
 
 -- LSP
 keymap("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>")
-keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
-keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
+keymap("n", "[d", '<cmd>lua vim.diagnostic.goto_prev { float = { border = "rounded" } }<CR>')
+keymap("n", "]d", '<cmd>lua vim.diagnostic.goto_next { float = { border = "rounded" } }<CR>')
 keymap("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
 
 vim.api.nvim_create_autocmd("LspAttach", {

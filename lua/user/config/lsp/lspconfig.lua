@@ -3,6 +3,21 @@ local lspconfig = require("lspconfig")
 
 local capabilities = cmp_lsp.default_capabilities()
 
+local border = {
+	{ "╭", "FloatBorder" },
+	{ "─", "FloatBorder" },
+	{ "╮", "FloatBorder" },
+	{ "│", "FloatBorder" },
+	{ "╯", "FloatBorder" },
+	{ "─", "FloatBorder" },
+	{ "╰", "FloatBorder" },
+	{ "│", "FloatBorder" },
+}
+local handlers = {
+	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+}
+
 local servers = {
 	{
 		"tsserver",
@@ -60,6 +75,7 @@ for _, server_spec in pairs(servers) do
 	local server_config = is_table_spec and server_spec[2] or {}
 
 	local config = vim.tbl_extend("keep", {
+		handlers = handlers,
 		capabilities = capabilities,
 	}, server_config)
 
