@@ -21,6 +21,7 @@ local lazygit = Terminal:new({
 	cmd = "lazygit",
 	hidden = true,
 	count = 99,
+	direction = "float",
 })
 
 function _lazygit_toggle()
