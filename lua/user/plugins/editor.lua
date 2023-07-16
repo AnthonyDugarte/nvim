@@ -7,59 +7,9 @@ return {
 		},
 	},
 	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
-		opts = {
-			dim_inactive = {
-				enabled = false,
-				shade = "dark",
-				percentage = 0.15,
-			},
-			integrations = {
-				bufferline = true,
-				cmp = true,
-				fidget = true,
-				gitsigns = true,
-				lsp_trouble = true,
-				indent_blankline = {
-					enabled = true,
-					colored_indent_levels = false,
-				},
-				mason = true,
-				native_lsp = {
-					enabled = true,
-					virtual_text = {
-						errors = { "italic" },
-						hints = { "italic" },
-						warnings = { "italic" },
-						information = { "italic" },
-					},
-					underlines = {
-						errors = { "underline" },
-						hints = { "underline" },
-						warnings = { "underline" },
-						information = { "underline" },
-					},
-					inlay_hints = {
-						background = true,
-					},
-				},
-				nvimtree = true,
-				telescope = true,
-				treesitter = true,
-				which_key = true,
-			},
-		},
-		config = function()
-			vim.cmd([[colorscheme catppuccin-macchiato]])
-		end,
-	},
-	{
 		"nvim-lualine/lualine.nvim",
 		opts = {
 			options = {
-				theme = "catppuccin",
 				disabled_filetypes = { "NvimTree" },
 			},
 			sections = {
@@ -78,11 +28,11 @@ return {
 				"tiagovla/scope.nvim",
 				opts = {},
 			},
-			"catppuccin/nvim",
+			-- "catppuccin/nvim",
 		},
 		opts = function()
 			return {
-				highlights = require("catppuccin.groups.integrations.bufferline").get(),
+				-- highlights = require("catppuccin.groups.integrations.bufferline").get(),
 				options = {
 					diagnostics = "nvim_lsp",
 					separator_style = "slant",
