@@ -65,6 +65,7 @@ local servers = {
 			},
 		},
 	},
+	"groovyls",
 }
 
 for _, server_spec in pairs(servers) do
