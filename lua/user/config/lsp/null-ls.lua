@@ -15,6 +15,8 @@ null_ls.setup({
 		diagnostics.terraform_validate,
 		formatting.terraform_fmt,
 
+		formatting.shfmt,
+
 		formatting.prettier,
 		diagnostics.eslint,
 

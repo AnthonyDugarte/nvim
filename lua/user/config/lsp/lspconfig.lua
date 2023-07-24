@@ -46,6 +46,11 @@ local servers = {
 
 				lsp_keymap("n", "<leader>fi", "<Cmd>:OrganizeImports<CR>", { desc = "Organize [I]mports [F]ormat" })
 			end,
+			settings = {
+				["diagnostics"] = {
+					["ignoredCodes"] = { 80006 },
+				},
+			},
 		},
 	},
 	"pyright",
