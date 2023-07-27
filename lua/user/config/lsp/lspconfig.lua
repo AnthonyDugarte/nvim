@@ -26,16 +26,13 @@ local servers = {
 				local function organize_imports()
 					local params = {
 						command = "_typescript.organizeImports",
-						arguments = { vim.api.nvim_buf_get_name(0) },
+						arguments = { vim.api.nvim_buf_get_name(bufnr) },
 					}
 					vim.lsp.buf.execute_command(params)
 				end
 
-				local lsp_keymap = require("user.utils").keymap_fun_gen({
-					noremap = true,
-					silent = true,
-					buffer = bufnr,
-				})
+				local lsp_keymap =
+					require("user.utils").keymap_fun_gen({ noremap = true, silent = true, buffer = bufnr })
 
 				vim.api.nvim_buf_create_user_command(
 					bufnr,
@@ -47,8 +44,8 @@ local servers = {
 				lsp_keymap("n", "<leader>fi", "<Cmd>:OrganizeImports<CR>", { desc = "Organize [I]mports [F]ormat" })
 			end,
 			settings = {
-				["diagnostics"] = {
-					["ignoredCodes"] = { 80006 },
+				diagnostics = {
+					ignoredCodes = { 80006 },
 				},
 			},
 		},
