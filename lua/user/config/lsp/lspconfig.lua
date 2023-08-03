@@ -22,7 +22,7 @@ local servers = {
 	{
 		"tsserver",
 		{
-			on_attach = function(client, bufnr)
+			on_attach = function(_, bufnr)
 				local function organize_imports()
 					local params = {
 						command = "_typescript.organizeImports",
@@ -68,6 +68,7 @@ local servers = {
 		},
 	},
 	"groovyls",
+	"gopls",
 }
 
 for _, server_spec in pairs(servers) do

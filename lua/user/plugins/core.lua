@@ -32,11 +32,35 @@ return {
 		dependencies = {
 			"JoosepAlviste/nvim-ts-context-commentstring",
 			"windwp/nvim-ts-autotag",
-			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
-		config = function()
-			require("user.config.treesitter")
-		end,
+		opts = {
+			ensure_installed = { "lua", "javascript", "typescript", "tsx" },
+			ignore_install = { "php", "phpdoc", "java", "fortran" },
+			auto_install = true,
+			highlight = {
+				enable = true,
+				additional_vim_regex_highlighting = false,
+			},
+			indent = {
+				enable = true,
+			},
+			autotag = {
+				enable = true,
+			},
+			context_commentstring = {
+				enable = true,
+				enable_autocmd = false,
+			},
+			incremental_selection = {
+				enable = true,
+				keymaps = {
+					init_selection = "gnn",
+					node_incremental = "grn",
+					scope_incremental = "grc",
+					node_decremental = "grm",
+				},
+			},
+		},
 	},
 	{
 		"hrsh7th/nvim-cmp",
