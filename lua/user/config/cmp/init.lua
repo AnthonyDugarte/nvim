@@ -7,10 +7,10 @@ require("luasnip.loaders.from_vscode").lazy_load()
 local cmp_window = require("cmp.config.window")
 local cmp_types = require("cmp.types.cmp")
 
-local comp_autopairs_ok, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
-if comp_autopairs_ok then
-	cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-end
+-- local comp_autopairs_ok, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
+-- if comp_autopairs_ok then
+-- 	cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+-- end
 
 cmp.setup({
 	formatting = {
