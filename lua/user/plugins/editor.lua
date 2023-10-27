@@ -140,10 +140,10 @@ return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		priority = 999,
+		main = "ibl",
 		opts = {
-			char = "┊",
-			use_treesitter = true,
-			show_current_context = true,
+			indent = { char = "┊" },
+			scope = { enabled = true },
 		},
 	},
 	{
