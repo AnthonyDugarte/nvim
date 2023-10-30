@@ -51,7 +51,19 @@ local servers = {
 			},
 		},
 	},
-	"eslint",
+	{
+		"eslint",
+		{
+			on_attach = function(client, bufnr)
+				local lsp_keymap =
+				    require("user.utils").keymap_fun_gen({ noremap = true, silent = true, buffer = bufnr })
+
+				lsp_keymap("n", "<leader>fa", "<Cmd>:EslintFixAll<CR>",
+					{ desc = "[Fix] [A]ll Eslint issues" })
+			end
+
+		}
+	},
 	"pyright",
 	"lua_ls",
 	"clangd",
