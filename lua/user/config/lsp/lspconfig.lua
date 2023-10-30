@@ -32,7 +32,7 @@ local servers = {
 				end
 
 				local lsp_keymap =
-					require("user.utils").keymap_fun_gen({ noremap = true, silent = true, buffer = bufnr })
+				    require("user.utils").keymap_fun_gen({ noremap = true, silent = true, buffer = bufnr })
 
 				vim.api.nvim_buf_create_user_command(
 					bufnr,
@@ -41,7 +41,8 @@ local servers = {
 					{ desc = "Organize Imports" }
 				)
 
-				lsp_keymap("n", "<leader>fi", "<Cmd>:OrganizeImports<CR>", { desc = "Organize [I]mports [F]ormat" })
+				lsp_keymap("n", "<leader>fi", "<Cmd>:OrganizeImports<CR>",
+					{ desc = "Organize [I]mports [F]ormat" })
 			end,
 			settings = {
 				diagnostics = {
@@ -50,6 +51,7 @@ local servers = {
 			},
 		},
 	},
+	"eslint",
 	"pyright",
 	"lua_ls",
 	"clangd",

@@ -143,12 +143,12 @@ return {
 		main = "ibl",
 		opts = {
 			indent = { char = "┊" },
-			scope = { enabled = true },
+			scope = { enabled = true, show_start = false },
 		},
 	},
 	{
 		"nvim-telescope/telescope.nvim",
-		version = "0.1.1",
+		version = "0.1.4",
 		cmd = "Telescope",
 		dependencies = {
 			"nvim-lua/plenary.nvim",

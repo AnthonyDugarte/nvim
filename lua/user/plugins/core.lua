@@ -126,7 +126,10 @@ return {
 					"williamboman/mason.nvim",
 				},
 			},
-			"jose-elias-alvarez/null-ls.nvim",
+			{
+				"jose-elias-alvarez/null-ls.nvim",
+				enabled = false,
+			},
 			"hrsh7th/cmp-nvim-lsp",
 			{
 				"j-hui/fidget.nvim",

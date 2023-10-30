@@ -80,9 +80,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		lsp_keymap("n", "<leader>fm", function()
 			vim.lsp.buf.format({
 				async = true,
-				filter = function(client)
-					return client.name ~= "tsserver" and client.name ~= "lua_ls"
-				end,
+				-- filter = function(client)
+				-- 	return client.name ~= "tsserver" and client.name ~= "lua_ls"
+				-- end,
 			})
 		end, { desc = "[F]or[m]at" })
 	end,
