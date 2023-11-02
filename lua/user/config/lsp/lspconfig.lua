@@ -42,7 +42,7 @@ local servers = {
 				)
 
 				lsp_keymap("n", "<leader>fi", "<Cmd>:OrganizeImports<CR>",
-					{ desc = "Organize [I]mports [F]ormat" })
+					{ desc = "[F]ormat [I]mports" })
 			end,
 			settings = {
 				diagnostics = {
@@ -54,6 +54,12 @@ local servers = {
 	{
 		"eslint",
 		{
+			settings = {
+				format = { enable = true },
+			},
+			on_init = function(client, initialize_result)
+				client.server_capabilities.documentFormattingProvider = true
+			end,
 			on_attach = function(client, bufnr)
 				local lsp_keymap =
 				    require("user.utils").keymap_fun_gen({ noremap = true, silent = true, buffer = bufnr })

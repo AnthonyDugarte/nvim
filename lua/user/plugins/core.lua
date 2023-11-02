@@ -122,7 +122,6 @@ return {
 					automatic_installation = true,
 				},
 				dependencies = {
-
 					"williamboman/mason.nvim",
 				},
 			},
