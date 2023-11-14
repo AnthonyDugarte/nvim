@@ -141,11 +141,7 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			{
 				"j-hui/fidget.nvim",
-				opts = {
-					window = {
-						blend = 0,
-					},
-				},
+				opts = {},
 			},
 			"b0o/schemastore.nvim",
 		},

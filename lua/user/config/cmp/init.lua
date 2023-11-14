@@ -12,7 +12,6 @@ if comp_autopairs_ok then
 	cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 end
 
-
 local has_words_before = function()
 	unpack = unpack or table.unpack
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -63,7 +62,7 @@ cmp.setup({
 				end
 			end,
 			s = cmp.mapping.confirm({ select = true }),
-			c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+			-- c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
 		}),
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() and has_words_before() then
