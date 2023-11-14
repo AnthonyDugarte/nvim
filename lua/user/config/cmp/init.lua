@@ -7,10 +7,18 @@ require("luasnip.loaders.from_vscode").lazy_load()
 local cmp_window = require("cmp.config.window")
 local cmp_types = require("cmp.types.cmp")
 
--- local comp_autopairs_ok, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
--- if comp_autopairs_ok then
--- 	cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
--- end
+local comp_autopairs_ok, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
+if comp_autopairs_ok then
+	cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+end
+
+
+local has_words_before = function()
+	unpack = unpack or table.unpack
+	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
 
 cmp.setup({
 	formatting = {
@@ -46,39 +54,26 @@ cmp.setup({
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.abort(),
-		["<CR>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				local confirm_opts = {
-					behavior = cmp_types.ConfirmBehavior.Replace,
-					select = false,
-				}
-
-				local is_insert_mode = function()
-					return vim.api.nvim_get_mode().mode:sub(1, 1) == "i"
+		["<CR>"] = cmp.mapping({
+			i = function(fallback)
+				if cmp.visible() and cmp.get_active_entry() then
+					cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+				else
+					fallback()
 				end
-				if is_insert_mode() then -- prevent overwriting brackets
-					confirm_opts.behavior = cmp_types.ConfirmBehavior.Insert
-				end
-
-				local entry = cmp.get_selected_entry()
-				local is_copilot = entry and entry.source.name == "copilot"
-				if is_copilot then
-					confirm_opts.behavior = cmp_types.ConfirmBehavior.Replace
-					confirm_opts.select = true
-				end
-
-				if cmp.confirm(confirm_opts) then
-					return -- success, exit early
-				end
-			end
-
-			fallback() -- if not exited early, always fallback
-		end),
+			end,
+			s = cmp.mapping.confirm({ select = true }),
+			c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+		}),
 		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
+			if cmp.visible() and has_words_before() then
+				cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+			elseif cmp.visible() then
 				cmp.select_next_item()
 			elseif luasnip.expand_or_jumpable() then
 				luasnip.expand_or_jump()
+			elseif has_words_before() then
+				cmp.complete()
 			else
 				fallback()
 			end

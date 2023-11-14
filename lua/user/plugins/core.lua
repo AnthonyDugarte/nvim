@@ -31,7 +31,10 @@ return {
 		build = ":TSUpdate",
 		dependencies = {
 			"JoosepAlviste/nvim-ts-context-commentstring",
-			"windwp/nvim-ts-autotag",
+			{
+				"windwp/nvim-ts-autotag",
+				config = false
+			},
 		},
 		opts = {
 			ensure_installed = { "lua", "javascript", "typescript", "tsx" },
@@ -46,6 +49,10 @@ return {
 			},
 			autotag = {
 				enable = true,
+				enable_rename = true,
+				enable_close = true,
+				enable_close_on_slash = false,
+
 			},
 			context_commentstring = {
 				enable = true,
@@ -67,7 +74,7 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
-		event = "VeryLazy",
+		event = { "InsertEnter", "CmdlineEnter" },
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
@@ -91,7 +98,9 @@ return {
 						},
 					},
 				},
-				opts = {},
+				opts = {
+					fix_pairs = false,
+				},
 			},
 		},
 		config = function()
