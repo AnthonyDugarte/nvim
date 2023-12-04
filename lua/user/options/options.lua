@@ -20,7 +20,7 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
-vim.o.updatetime = 250
+vim.o.updatetime = 100
 vim.o.timeout = true
 vim.o.timeoutlen = 300
 

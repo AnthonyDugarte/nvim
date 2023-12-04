@@ -30,7 +30,12 @@ return {
 		event = "BufRead",
 		build = ":TSUpdate",
 		dependencies = {
-			"JoosepAlviste/nvim-ts-context-commentstring",
+			{
+				"JoosepAlviste/nvim-ts-context-commentstring",
+				opts = {
+					enable_autocmd = false,
+				}
+			},
 			{
 				"windwp/nvim-ts-autotag",
 				config = false
@@ -53,10 +58,6 @@ return {
 				enable_close = true,
 				enable_close_on_slash = false,
 
-			},
-			context_commentstring = {
-				enable = true,
-				enable_autocmd = false,
 			},
 			incremental_selection = {
 				enable = true,

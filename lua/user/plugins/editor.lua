@@ -180,4 +180,22 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		cmd = { "TroubleToggle", "Trouble" },
 	},
+	{
+		'stevearc/aerial.nvim',
+		opts = {
+			on_attach = function(bufnr)
+				-- Jump forwards/back{wards with '{' and '}'
+				vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+				vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
+			end,
+
+		},
+		keys = {
+			{ "<leader>a", "<cmd>AerialToggle!<cr>", mode = "n", desc = "Toggle Aerial" },
+		},
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons"
+		},
+	}
 }
